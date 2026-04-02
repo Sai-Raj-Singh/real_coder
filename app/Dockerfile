@@ -19,11 +19,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
  
 ###############################################
-# GO 1.21
+# GO 1.22
 ###############################################
-RUN wget -q https://go.dev/dl/go1.21.13.linux-amd64.tar.gz \
-    && tar -C /usr/local -xzf go1.21.13.linux-amd64.tar.gz \
-    && rm go1.21.13.linux-amd64.tar.gz
+RUN wget -q https://go.dev/dl/go1.22.12.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.22.12.linux-amd64.tar.gz \
+    && rm go1.22.12.linux-amd64.tar.gz
  
 ENV PATH="/usr/local/go/bin:${PATH}"
  
