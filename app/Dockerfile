@@ -1,31 +1,24 @@
 ###############################################
 # BASE IMAGE
 ###############################################
-FROM ubuntu:22.04
+
+FROM --platform=linux/amd64 ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 ###############################################
 # SYSTEM DEPENDENCIES
 ###############################################
+
 RUN apt-get update && apt-get install -y \
     git \
     python3 \
     python3-pip \
-    python3-dev \
     python3-setuptools \
     python-is-python3 \
-    build-essential \
-    libsqlcipher-dev \
-    libsqlcipher0 \
     unzip \
     && rm -rf /var/lib/apt/lists/*
- 
-###############################################
-# PYTHON DEPENDENCIES
-###############################################
-RUN pip3 install sqlcipher3 pyperclip pytest pytest-xdist
- 
+
 ###############################################
 # WORKING DIRECTORY + GIT SETUP
 ###############################################
@@ -43,6 +36,26 @@ RUN git init \
 # EVALUATION ASSETS DIRECTORY
 ###############################################
 # Populated at RUNTIME by the evaluation script.
+
 RUN mkdir -p /eval_assets
+
+###############################################
+# NODE.JS RUNTIME (for meeting-poll solution)
+###############################################
+
+RUN apt-get update && apt-get install -y \
+        curl \
+        ca-certificates \
+        gnupg \
+        build-essential \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+###############################################
+# PYTHON TEST DEPENDENCIES (pytest + requests)
+###############################################
+
+RUN pip3 install --no-cache-dir pytest==8.3.2 requests==2.32.3
 
 CMD ["/bin/bash"]

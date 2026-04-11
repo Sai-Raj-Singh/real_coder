@@ -1,8 +1,8 @@
-name: Validate md2slides
+name: Validate Compression Library
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Dagger CLI
+        run: |
+          curl -fsSL https://dl.dagger.io/dagger/install.sh | BIN_DIR=/usr/local/bin sh
+          dagger version
+
       - name: Set up Docker
         uses: docker/setup-buildx-action@v3
 
@@ -21,8 +26,8 @@ jobs:
           sed -i 's|APP_DIR=.*|APP_DIR="${{ github.workspace }}/app"|' validation.sh
           chmod +x validation.sh
 
-      - name: Run validation
-        run: bash validation.sh
+      - name: Run validation via Dagger
+        run: dagger run bash validation.sh
 
       - name: Upload results
         if: always()

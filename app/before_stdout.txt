@@ -1,0 +1,363 @@
+Running all tests...
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.3.2, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /eval_assets
+collecting ... collected 49 items
+
+tests/test_api.py::test_database_uses_wal_mode FAILED                    [  2%]
+tests/test_api.py::test_create_poll_returns_poll_id FAILED               [  4%]
+tests/test_api.py::test_create_poll_missing_title_rejected FAILED        [  6%]
+tests/test_api.py::test_create_poll_title_too_long_rejected FAILED       [  8%]
+tests/test_api.py::test_create_poll_short_passphrase_rejected FAILED     [ 10%]
+tests/test_api.py::test_create_poll_empty_time_slots_rejected FAILED     [ 12%]
+tests/test_api.py::test_create_poll_invalid_date_rejected FAILED         [ 14%]
+tests/test_api.py::test_create_poll_invalid_time_rejected FAILED         [ 16%]
+tests/test_api.py::test_create_poll_non_24h_time_format_rejected FAILED  [ 18%]
+tests/test_api.py::test_create_poll_empty_title_rejected FAILED          [ 20%]
+tests/test_api.py::test_create_poll_non_iso_date_format_rejected FAILED  [ 22%]
+tests/test_api.py::test_create_poll_description_too_long_rejected FAILED [ 24%]
+tests/test_api.py::test_create_poll_long_passphrase_rejected FAILED      [ 26%]
+tests/test_api.py::test_get_poll_returns_expected_shape FAILED           [ 28%]
+tests/test_api.py::test_get_poll_slots_sorted_by_date_then_time FAILED   [ 30%]
+tests/test_api.py::test_get_poll_nonexistent_returns_404 FAILED          [ 32%]
+tests/test_api.py::test_submit_response_creates_entries FAILED           [ 34%]
+tests/test_api.py::test_submit_response_duplicate_name_rejected FAILED   [ 36%]
+tests/test_api.py::test_submit_response_missing_participant_name_rejected FAILED [ 38%]
+tests/test_api.py::test_submit_response_empty_participant_name_rejected FAILED [ 40%]
+tests/test_api.py::test_submit_response_long_participant_name_rejected FAILED [ 42%]
+tests/test_api.py::test_submit_response_invalid_availability_value_rejected FAILED [ 44%]
+tests/test_api.py::test_submit_response_slot_from_other_poll_rejected FAILED [ 46%]
+tests/test_api.py::test_submit_response_invalid_slot_id_rejected FAILED  [ 48%]
+tests/test_api.py::test_submit_response_nonexistent_poll_returns_404 FAILED [ 51%]
+tests/test_api.py::test_get_poll_reflects_submitted_response FAILED      [ 53%]
+tests/test_api.py::test_auth_correct_passphrase_returns_valid FAILED     [ 55%]
+tests/test_api.py::test_auth_wrong_passphrase_returns_403 FAILED         [ 57%]
+tests/test_api.py::test_auth_nonexistent_poll_returns_404 FAILED         [ 59%]
+tests/test_api.py::test_close_poll_returns_winning_slot FAILED           [ 61%]
+tests/test_api.py::test_close_poll_tie_broken_by_earliest_date FAILED    [ 63%]
+tests/test_api.py::test_close_poll_tie_broken_by_earliest_start_time FAILED [ 65%]
+tests/test_api.py::test_close_poll_wrong_passphrase_returns_403 FAILED   [ 67%]
+tests/test_api.py::test_close_poll_nonexistent_returns_404 FAILED        [ 69%]
+tests/test_api.py::test_closed_poll_rejects_new_responses FAILED         [ 71%]
+tests/test_api.py::test_add_time_slots_succeeds FAILED                   [ 73%]
+tests/test_api.py::test_add_time_slots_invalid_date_format_rejected FAILED [ 75%]
+tests/test_api.py::test_add_time_slots_invalid_time_format_rejected FAILED [ 77%]
+tests/test_api.py::test_add_time_slots_wrong_passphrase_returns_403 FAILED [ 79%]
+tests/test_api.py::test_add_time_slots_nonexistent_poll_returns_404 FAILED [ 81%]
+tests/test_api.py::test_add_time_slots_on_closed_poll_rejected FAILED    [ 83%]
+tests/test_api.py::test_delete_participant_responses_succeeds FAILED     [ 85%]
+tests/test_api.py::test_delete_nonexistent_participant_returns_zero FAILED [ 87%]
+tests/test_api.py::test_delete_participant_wrong_passphrase_returns_403 FAILED [ 89%]
+tests/test_api.py::test_delete_participant_nonexistent_poll_returns_404 FAILED [ 91%]
+tests/test_api.py::test_passphrase_stored_as_plaintext FAILED            [ 93%]
+tests/test_api.py::test_delete_response_count_equals_slot_count FAILED   [ 95%]
+tests/test_api.py::test_poll_expiration_cleanup_deletes_stale_polls FAILED [ 97%]
+tests/test_api.py::test_spa_fallback_returns_html_for_client_route FAILED [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_database_uses_wal_mode __________________________
+tests/test_api.py:30: in test_database_uses_wal_mode
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_______________________ test_create_poll_returns_poll_id _______________________
+tests/test_api.py:42: in test_create_poll_returns_poll_id
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+___________________ test_create_poll_missing_title_rejected ____________________
+tests/test_api.py:62: in test_create_poll_missing_title_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+___________________ test_create_poll_title_too_long_rejected ___________________
+tests/test_api.py:77: in test_create_poll_title_too_long_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+__________________ test_create_poll_short_passphrase_rejected __________________
+tests/test_api.py:92: in test_create_poll_short_passphrase_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+__________________ test_create_poll_empty_time_slots_rejected __________________
+tests/test_api.py:107: in test_create_poll_empty_time_slots_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________________ test_create_poll_invalid_date_rejected ____________________
+tests/test_api.py:122: in test_create_poll_invalid_date_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________________ test_create_poll_invalid_time_rejected ____________________
+tests/test_api.py:137: in test_create_poll_invalid_time_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+________________ test_create_poll_non_24h_time_format_rejected _________________
+tests/test_api.py:152: in test_create_poll_non_24h_time_format_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________________ test_create_poll_empty_title_rejected _____________________
+tests/test_api.py:167: in test_create_poll_empty_title_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+________________ test_create_poll_non_iso_date_format_rejected _________________
+tests/test_api.py:182: in test_create_poll_non_iso_date_format_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+________________ test_create_poll_description_too_long_rejected ________________
+tests/test_api.py:197: in test_create_poll_description_too_long_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+__________________ test_create_poll_long_passphrase_rejected ___________________
+tests/test_api.py:212: in test_create_poll_long_passphrase_rejected
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________________ test_get_poll_returns_expected_shape _____________________
+tests/test_api.py:227: in test_get_poll_returns_expected_shape
+    poll = make_poll(title="Shape Test", description="desc")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_________________ test_get_poll_slots_sorted_by_date_then_time _________________
+tests/test_api.py:241: in test_get_poll_slots_sorted_by_date_then_time
+    poll = make_poll(
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________________ test_get_poll_nonexistent_returns_404 _____________________
+tests/test_api.py:254: in test_get_poll_nonexistent_returns_404
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________________ test_submit_response_creates_entries _____________________
+tests/test_api.py:261: in test_submit_response_creates_entries
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_________________ test_submit_response_duplicate_name_rejected _________________
+tests/test_api.py:281: in test_submit_response_duplicate_name_rejected
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________ test_submit_response_missing_participant_name_rejected ____________
+tests/test_api.py:300: in test_submit_response_missing_participant_name_rejected
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________ test_submit_response_empty_participant_name_rejected _____________
+tests/test_api.py:314: in test_submit_response_empty_participant_name_rejected
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________ test_submit_response_long_participant_name_rejected ______________
+tests/test_api.py:329: in test_submit_response_long_participant_name_rejected
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+___________ test_submit_response_invalid_availability_value_rejected ___________
+tests/test_api.py:344: in test_submit_response_invalid_availability_value_rejected
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+______________ test_submit_response_slot_from_other_poll_rejected ______________
+tests/test_api.py:359: in test_submit_response_slot_from_other_poll_rejected
+    poll_a = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+________________ test_submit_response_invalid_slot_id_rejected _________________
+tests/test_api.py:377: in test_submit_response_invalid_slot_id_rejected
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+______________ test_submit_response_nonexistent_poll_returns_404 _______________
+tests/test_api.py:393: in test_submit_response_nonexistent_poll_returns_404
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+__________________ test_get_poll_reflects_submitted_response ___________________
+tests/test_api.py:407: in test_get_poll_reflects_submitted_response
+    poll = make_poll()
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+__________________ test_auth_correct_passphrase_returns_valid __________________
+tests/test_api.py:430: in test_auth_correct_passphrase_returns_valid
+    poll = make_poll(passphrase="topSecret99")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________________ test_auth_wrong_passphrase_returns_403 ____________________
+tests/test_api.py:441: in test_auth_wrong_passphrase_returns_403
+    poll = make_poll(passphrase="realpass123")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________________ test_auth_nonexistent_poll_returns_404 ____________________
+tests/test_api.py:452: in test_auth_nonexistent_poll_returns_404
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________________ test_close_poll_returns_winning_slot _____________________
+tests/test_api.py:463: in test_close_poll_returns_winning_slot
+    poll = make_poll(passphrase="closer12345")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_________________ test_close_poll_tie_broken_by_earliest_date __________________
+tests/test_api.py:506: in test_close_poll_tie_broken_by_earliest_date
+    poll = make_poll(
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+______________ test_close_poll_tie_broken_by_earliest_start_time _______________
+tests/test_api.py:537: in test_close_poll_tie_broken_by_earliest_start_time
+    poll = make_poll(
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_________________ test_close_poll_wrong_passphrase_returns_403 _________________
+tests/test_api.py:568: in test_close_poll_wrong_passphrase_returns_403
+    poll = make_poll(passphrase="rightpass99")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+___________________ test_close_poll_nonexistent_returns_404 ____________________
+tests/test_api.py:579: in test_close_poll_nonexistent_returns_404
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+____________________ test_closed_poll_rejects_new_responses ____________________
+tests/test_api.py:590: in test_closed_poll_rejects_new_responses
+    poll = make_poll(passphrase="closeme12345")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_________________________ test_add_time_slots_succeeds _________________________
+tests/test_api.py:610: in test_add_time_slots_succeeds
+    poll = make_poll(passphrase="addslot12345")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_______________ test_add_time_slots_invalid_date_format_rejected _______________
+tests/test_api.py:627: in test_add_time_slots_invalid_date_format_rejected
+    poll = make_poll(passphrase="addfmtdate12")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_______________ test_add_time_slots_invalid_time_format_rejected _______________
+tests/test_api.py:641: in test_add_time_slots_invalid_time_format_rejected
+    poll = make_poll(passphrase="addfmttime12")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_______________ test_add_time_slots_wrong_passphrase_returns_403 _______________
+tests/test_api.py:655: in test_add_time_slots_wrong_passphrase_returns_403
+    poll = make_poll(passphrase="realpass123")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_______________ test_add_time_slots_nonexistent_poll_returns_404 _______________
+tests/test_api.py:669: in test_add_time_slots_nonexistent_poll_returns_404
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_________________ test_add_time_slots_on_closed_poll_rejected __________________
+tests/test_api.py:683: in test_add_time_slots_on_closed_poll_rejected
+    poll = make_poll(passphrase="closeslot123")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+__________________ test_delete_participant_responses_succeeds __________________
+tests/test_api.py:702: in test_delete_participant_responses_succeeds
+    poll = make_poll(passphrase="delpart12345")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_______________ test_delete_nonexistent_participant_returns_zero _______________
+tests/test_api.py:728: in test_delete_nonexistent_participant_returns_zero
+    poll = make_poll(passphrase="delnone12345")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________ test_delete_participant_wrong_passphrase_returns_403 _____________
+tests/test_api.py:741: in test_delete_participant_wrong_passphrase_returns_403
+    poll = make_poll(passphrase="realpass456")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________ test_delete_participant_nonexistent_poll_returns_404 _____________
+tests/test_api.py:752: in test_delete_participant_nonexistent_poll_returns_404
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_____________________ test_passphrase_stored_as_plaintext ______________________
+tests/test_api.py:764: in test_passphrase_stored_as_plaintext
+    make_poll(passphrase=plain)
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_________________ test_delete_response_count_equals_slot_count _________________
+tests/test_api.py:795: in test_delete_response_count_equals_slot_count
+    poll = make_poll(passphrase="delcount1234")
+tests/conftest.py:74: in _make
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+_______________ test_poll_expiration_cleanup_deletes_stale_polls _______________
+tests/test_api.py:822: in test_poll_expiration_cleanup_deletes_stale_polls
+    assert os.path.exists(entry), f"Server entry not found at {entry}"
+E   AssertionError: Server entry not found at /eval_assets/server/src/index.ts
+E   assert False
+E    +  where False = <function exists at 0x7f4fdd1bdea0>('/eval_assets/server/src/index.ts')
+E    +    where <function exists at 0x7f4fdd1bdea0> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.exists
+E    +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path
+_______________ test_spa_fallback_returns_html_for_client_route ________________
+tests/test_api.py:935: in test_spa_fallback_returns_html_for_client_route
+    assert server_url is not None, "Server is not running"
+E   AssertionError: Server is not running
+E   assert None is not None
+============================== 49 failed in 1.13s ==============================
