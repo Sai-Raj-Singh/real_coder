@@ -1,363 +1,637 @@
 Running all tests...
 ============================= test session starts ==============================
-platform linux -- Python 3.10.12, pytest-8.3.2, pluggy-1.6.0 -- /usr/bin/python3
-cachedir: .pytest_cache
-rootdir: /eval_assets
-collecting ... collected 49 items
+collecting ... collected 86 items
 
-tests/test_api.py::test_database_uses_wal_mode FAILED                    [  2%]
-tests/test_api.py::test_create_poll_returns_poll_id FAILED               [  4%]
-tests/test_api.py::test_create_poll_missing_title_rejected FAILED        [  6%]
-tests/test_api.py::test_create_poll_title_too_long_rejected FAILED       [  8%]
-tests/test_api.py::test_create_poll_short_passphrase_rejected FAILED     [ 10%]
-tests/test_api.py::test_create_poll_empty_time_slots_rejected FAILED     [ 12%]
-tests/test_api.py::test_create_poll_invalid_date_rejected FAILED         [ 14%]
-tests/test_api.py::test_create_poll_invalid_time_rejected FAILED         [ 16%]
-tests/test_api.py::test_create_poll_non_24h_time_format_rejected FAILED  [ 18%]
-tests/test_api.py::test_create_poll_empty_title_rejected FAILED          [ 20%]
-tests/test_api.py::test_create_poll_non_iso_date_format_rejected FAILED  [ 22%]
-tests/test_api.py::test_create_poll_description_too_long_rejected FAILED [ 24%]
-tests/test_api.py::test_create_poll_long_passphrase_rejected FAILED      [ 26%]
-tests/test_api.py::test_get_poll_returns_expected_shape FAILED           [ 28%]
-tests/test_api.py::test_get_poll_slots_sorted_by_date_then_time FAILED   [ 30%]
-tests/test_api.py::test_get_poll_nonexistent_returns_404 FAILED          [ 32%]
-tests/test_api.py::test_submit_response_creates_entries FAILED           [ 34%]
-tests/test_api.py::test_submit_response_duplicate_name_rejected FAILED   [ 36%]
-tests/test_api.py::test_submit_response_missing_participant_name_rejected FAILED [ 38%]
-tests/test_api.py::test_submit_response_empty_participant_name_rejected FAILED [ 40%]
-tests/test_api.py::test_submit_response_long_participant_name_rejected FAILED [ 42%]
-tests/test_api.py::test_submit_response_invalid_availability_value_rejected FAILED [ 44%]
-tests/test_api.py::test_submit_response_slot_from_other_poll_rejected FAILED [ 46%]
-tests/test_api.py::test_submit_response_invalid_slot_id_rejected FAILED  [ 48%]
-tests/test_api.py::test_submit_response_nonexistent_poll_returns_404 FAILED [ 51%]
-tests/test_api.py::test_get_poll_reflects_submitted_response FAILED      [ 53%]
-tests/test_api.py::test_auth_correct_passphrase_returns_valid FAILED     [ 55%]
-tests/test_api.py::test_auth_wrong_passphrase_returns_403 FAILED         [ 57%]
-tests/test_api.py::test_auth_nonexistent_poll_returns_404 FAILED         [ 59%]
-tests/test_api.py::test_close_poll_returns_winning_slot FAILED           [ 61%]
-tests/test_api.py::test_close_poll_tie_broken_by_earliest_date FAILED    [ 63%]
-tests/test_api.py::test_close_poll_tie_broken_by_earliest_start_time FAILED [ 65%]
-tests/test_api.py::test_close_poll_wrong_passphrase_returns_403 FAILED   [ 67%]
-tests/test_api.py::test_close_poll_nonexistent_returns_404 FAILED        [ 69%]
-tests/test_api.py::test_closed_poll_rejects_new_responses FAILED         [ 71%]
-tests/test_api.py::test_add_time_slots_succeeds FAILED                   [ 73%]
-tests/test_api.py::test_add_time_slots_invalid_date_format_rejected FAILED [ 75%]
-tests/test_api.py::test_add_time_slots_invalid_time_format_rejected FAILED [ 77%]
-tests/test_api.py::test_add_time_slots_wrong_passphrase_returns_403 FAILED [ 79%]
-tests/test_api.py::test_add_time_slots_nonexistent_poll_returns_404 FAILED [ 81%]
-tests/test_api.py::test_add_time_slots_on_closed_poll_rejected FAILED    [ 83%]
-tests/test_api.py::test_delete_participant_responses_succeeds FAILED     [ 85%]
-tests/test_api.py::test_delete_nonexistent_participant_returns_zero FAILED [ 87%]
-tests/test_api.py::test_delete_participant_wrong_passphrase_returns_403 FAILED [ 89%]
-tests/test_api.py::test_delete_participant_nonexistent_poll_returns_404 FAILED [ 91%]
-tests/test_api.py::test_passphrase_stored_as_plaintext FAILED            [ 93%]
-tests/test_api.py::test_delete_response_count_equals_slot_count FAILED   [ 95%]
-tests/test_api.py::test_poll_expiration_cleanup_deletes_stale_polls FAILED [ 97%]
-tests/test_api.py::test_spa_fallback_returns_html_for_client_route FAILED [100%]
+tests/test_tracker.py::test_tracker_module_is_importable FAILED          [  1%]
+tests/test_tracker.py::test_main_returns_int_exit_code FAILED            [  2%]
+tests/test_tracker.py::test_no_args_exits_with_invalid_code FAILED       [  3%]
+tests/test_tracker.py::test_no_args_error_colored_red FAILED             [  4%]
+tests/test_tracker.py::test_invalid_usage_error_contains_literal_phrase FAILED [  5%]
+tests/test_tracker.py::test_unknown_command_exits_invalid FAILED         [  6%]
+tests/test_tracker.py::test_start_without_project_is_invalid FAILED      [  8%]
+tests/test_tracker.py::test_start_with_empty_project_is_invalid FAILED   [  9%]
+tests/test_tracker.py::test_start_with_too_many_arguments_is_invalid FAILED [ 10%]
+tests/test_tracker.py::test_stop_with_extra_argument_is_invalid FAILED   [ 11%]
+tests/test_tracker.py::test_status_with_extra_argument_is_invalid FAILED [ 12%]
+tests/test_tracker.py::test_report_without_subcommand_is_invalid FAILED  [ 13%]
+tests/test_tracker.py::test_report_unknown_subcommand_is_invalid FAILED  [ 15%]
+tests/test_tracker.py::test_report_day_with_extra_argument_is_invalid FAILED [ 16%]
+tests/test_tracker.py::test_report_week_with_extra_argument_is_invalid FAILED [ 17%]
+tests/test_tracker.py::test_invalid_invocation_does_not_create_log FAILED [ 18%]
+tests/test_tracker.py::test_invalid_invocation_does_not_modify_existing_log FAILED [ 19%]
+tests/test_tracker.py::test_start_first_call_creates_log_file FAILED     [ 20%]
+tests/test_tracker.py::test_start_success_exit_code_zero FAILED          [ 22%]
+tests/test_tracker.py::test_start_persists_session_with_required_keys FAILED [ 23%]
+tests/test_tracker.py::test_start_records_project_name FAILED            [ 24%]
+tests/test_tracker.py::test_start_sets_end_to_null_while_running FAILED  [ 25%]
+tests/test_tracker.py::test_start_timestamp_is_iso_second_precision FAILED [ 26%]
+tests/test_tracker.py::test_start_duplicate_timer_fails_with_exit_one FAILED [ 27%]
+tests/test_tracker.py::test_start_duplicate_error_colored_red FAILED     [ 29%]
+tests/test_tracker.py::test_start_duplicate_error_names_existing_project FAILED [ 30%]
+tests/test_tracker.py::test_start_duplicate_error_contains_literal_phrase FAILED [ 31%]
+tests/test_tracker.py::test_start_duplicate_does_not_modify_file FAILED  [ 32%]
+tests/test_tracker.py::test_start_success_message_uses_cyan_for_project FAILED [ 33%]
+tests/test_tracker.py::test_start_success_message_contains_literal_phrase FAILED [ 34%]
+tests/test_tracker.py::test_log_file_ends_with_newline FAILED            [ 36%]
+tests/test_tracker.py::test_start_appends_rather_than_overwriting FAILED [ 37%]
+tests/test_tracker.py::test_stop_success_exit_code_zero FAILED           [ 38%]
+tests/test_tracker.py::test_stop_sets_end_to_iso_string FAILED           [ 39%]
+tests/test_tracker.py::test_stop_with_no_running_timer_exits_one FAILED  [ 40%]
+tests/test_tracker.py::test_stop_no_running_error_colored_red FAILED     [ 41%]
+tests/test_tracker.py::test_stop_no_running_error_contains_literal_phrase FAILED [ 43%]
+tests/test_tracker.py::test_stop_without_log_file_exits_one FAILED       [ 44%]
+tests/test_tracker.py::test_stop_message_contains_project_in_cyan_and_duration_in_green FAILED [ 45%]
+tests/test_tracker.py::test_stop_message_renders_duration_h_m_s FAILED   [ 46%]
+tests/test_tracker.py::test_stop_success_message_contains_literal_phrase FAILED [ 47%]
+tests/test_tracker.py::test_stop_message_wraps_duration_in_parentheses FAILED [ 48%]
+tests/test_tracker.py::test_stop_preserves_previously_completed_sessions FAILED [ 50%]
+tests/test_tracker.py::test_status_when_idle_exits_zero FAILED           [ 51%]
+tests/test_tracker.py::test_status_when_idle_shows_idle_message FAILED   [ 52%]
+tests/test_tracker.py::test_status_when_idle_is_yellow FAILED            [ 53%]
+tests/test_tracker.py::test_status_when_running_exits_zero FAILED        [ 54%]
+tests/test_tracker.py::test_status_when_running_shows_project_in_cyan FAILED [ 55%]
+tests/test_tracker.py::test_status_when_running_shows_duration_in_green FAILED [ 56%]
+tests/test_tracker.py::test_status_when_running_message_contains_literal_phrase FAILED [ 58%]
+tests/test_tracker.py::test_status_without_log_file_exits_zero FAILED    [ 59%]
+tests/test_tracker.py::test_report_day_empty_exits_zero FAILED           [ 60%]
+tests/test_tracker.py::test_report_day_empty_shows_expected_message FAILED [ 61%]
+tests/test_tracker.py::test_report_day_empty_is_yellow FAILED            [ 62%]
+tests/test_tracker.py::test_report_day_lists_every_project_from_today FAILED [ 63%]
+tests/test_tracker.py::test_report_day_hours_use_two_decimal_places FAILED [ 65%]
+tests/test_tracker.py::test_report_day_includes_total_label FAILED       [ 66%]
+tests/test_tracker.py::test_report_day_total_row_shows_summed_hours FAILED [ 67%]
+tests/test_tracker.py::test_report_day_sorts_rows_by_hours_descending FAILED [ 68%]
+tests/test_tracker.py::test_report_day_ties_break_by_project_name_ascending FAILED [ 69%]
+tests/test_tracker.py::test_report_day_excludes_sessions_from_other_days FAILED [ 70%]
+tests/test_tracker.py::test_report_day_aggregates_multiple_sessions_for_same_project FAILED [ 72%]
+tests/test_tracker.py::test_report_day_includes_running_session FAILED   [ 73%]
+tests/test_tracker.py::test_report_day_data_rows_use_cyan_and_green FAILED [ 74%]
+tests/test_tracker.py::test_report_day_header_and_total_use_yellow FAILED [ 75%]
+tests/test_tracker.py::test_report_day_header_contains_project_and_hours_labels FAILED [ 76%]
+tests/test_tracker.py::test_report_day_has_dash_separator_row FAILED     [ 77%]
+tests/test_tracker.py::test_report_week_empty_exits_zero FAILED          [ 79%]
+tests/test_tracker.py::test_report_week_empty_shows_expected_message FAILED [ 80%]
+tests/test_tracker.py::test_report_week_empty_is_yellow FAILED           [ 81%]
+tests/test_tracker.py::test_report_week_lists_sessions_from_this_week FAILED [ 82%]
+tests/test_tracker.py::test_report_week_excludes_sessions_from_other_weeks FAILED [ 83%]
+tests/test_tracker.py::test_report_week_includes_total_label FAILED      [ 84%]
+tests/test_tracker.py::test_report_week_total_row_shows_summed_hours FAILED [ 86%]
+tests/test_tracker.py::test_report_week_aggregates_multiple_sessions_for_same_project FAILED [ 87%]
+tests/test_tracker.py::test_report_week_hours_use_two_decimal_places FAILED [ 88%]
+tests/test_tracker.py::test_report_week_sorts_rows_by_hours_descending FAILED [ 89%]
+tests/test_tracker.py::test_report_week_ties_break_by_project_name_ascending FAILED [ 90%]
+tests/test_tracker.py::test_report_week_data_rows_use_cyan_and_green FAILED [ 91%]
+tests/test_tracker.py::test_report_week_header_and_total_use_yellow FAILED [ 93%]
+tests/test_tracker.py::test_report_week_header_contains_project_and_hours_labels FAILED [ 94%]
+tests/test_tracker.py::test_report_week_has_dash_separator_row FAILED    [ 95%]
+tests/test_tracker.py::test_report_week_includes_monday_start_of_week FAILED [ 96%]
+tests/test_tracker.py::test_report_week_includes_sunday_end_of_week FAILED [ 97%]
+tests/test_tracker.py::test_log_file_is_pretty_printed FAILED            [ 98%]
+tests/test_tracker.py::test_log_file_uses_two_space_indent FAILED        [100%]
 
 =================================== FAILURES ===================================
-_________________________ test_database_uses_wal_mode __________________________
-tests/test_api.py:30: in test_database_uses_wal_mode
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_______________________ test_create_poll_returns_poll_id _______________________
-tests/test_api.py:42: in test_create_poll_returns_poll_id
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-___________________ test_create_poll_missing_title_rejected ____________________
-tests/test_api.py:62: in test_create_poll_missing_title_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-___________________ test_create_poll_title_too_long_rejected ___________________
-tests/test_api.py:77: in test_create_poll_title_too_long_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-__________________ test_create_poll_short_passphrase_rejected __________________
-tests/test_api.py:92: in test_create_poll_short_passphrase_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-__________________ test_create_poll_empty_time_slots_rejected __________________
-tests/test_api.py:107: in test_create_poll_empty_time_slots_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________________ test_create_poll_invalid_date_rejected ____________________
-tests/test_api.py:122: in test_create_poll_invalid_date_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________________ test_create_poll_invalid_time_rejected ____________________
-tests/test_api.py:137: in test_create_poll_invalid_time_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-________________ test_create_poll_non_24h_time_format_rejected _________________
-tests/test_api.py:152: in test_create_poll_non_24h_time_format_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________________ test_create_poll_empty_title_rejected _____________________
-tests/test_api.py:167: in test_create_poll_empty_title_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-________________ test_create_poll_non_iso_date_format_rejected _________________
-tests/test_api.py:182: in test_create_poll_non_iso_date_format_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-________________ test_create_poll_description_too_long_rejected ________________
-tests/test_api.py:197: in test_create_poll_description_too_long_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-__________________ test_create_poll_long_passphrase_rejected ___________________
-tests/test_api.py:212: in test_create_poll_long_passphrase_rejected
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________________ test_get_poll_returns_expected_shape _____________________
-tests/test_api.py:227: in test_get_poll_returns_expected_shape
-    poll = make_poll(title="Shape Test", description="desc")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_________________ test_get_poll_slots_sorted_by_date_then_time _________________
-tests/test_api.py:241: in test_get_poll_slots_sorted_by_date_then_time
-    poll = make_poll(
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________________ test_get_poll_nonexistent_returns_404 _____________________
-tests/test_api.py:254: in test_get_poll_nonexistent_returns_404
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________________ test_submit_response_creates_entries _____________________
-tests/test_api.py:261: in test_submit_response_creates_entries
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_________________ test_submit_response_duplicate_name_rejected _________________
-tests/test_api.py:281: in test_submit_response_duplicate_name_rejected
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________ test_submit_response_missing_participant_name_rejected ____________
-tests/test_api.py:300: in test_submit_response_missing_participant_name_rejected
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________ test_submit_response_empty_participant_name_rejected _____________
-tests/test_api.py:314: in test_submit_response_empty_participant_name_rejected
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________ test_submit_response_long_participant_name_rejected ______________
-tests/test_api.py:329: in test_submit_response_long_participant_name_rejected
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-___________ test_submit_response_invalid_availability_value_rejected ___________
-tests/test_api.py:344: in test_submit_response_invalid_availability_value_rejected
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-______________ test_submit_response_slot_from_other_poll_rejected ______________
-tests/test_api.py:359: in test_submit_response_slot_from_other_poll_rejected
-    poll_a = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-________________ test_submit_response_invalid_slot_id_rejected _________________
-tests/test_api.py:377: in test_submit_response_invalid_slot_id_rejected
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-______________ test_submit_response_nonexistent_poll_returns_404 _______________
-tests/test_api.py:393: in test_submit_response_nonexistent_poll_returns_404
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-__________________ test_get_poll_reflects_submitted_response ___________________
-tests/test_api.py:407: in test_get_poll_reflects_submitted_response
-    poll = make_poll()
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-__________________ test_auth_correct_passphrase_returns_valid __________________
-tests/test_api.py:430: in test_auth_correct_passphrase_returns_valid
-    poll = make_poll(passphrase="topSecret99")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________________ test_auth_wrong_passphrase_returns_403 ____________________
-tests/test_api.py:441: in test_auth_wrong_passphrase_returns_403
-    poll = make_poll(passphrase="realpass123")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________________ test_auth_nonexistent_poll_returns_404 ____________________
-tests/test_api.py:452: in test_auth_nonexistent_poll_returns_404
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________________ test_close_poll_returns_winning_slot _____________________
-tests/test_api.py:463: in test_close_poll_returns_winning_slot
-    poll = make_poll(passphrase="closer12345")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_________________ test_close_poll_tie_broken_by_earliest_date __________________
-tests/test_api.py:506: in test_close_poll_tie_broken_by_earliest_date
-    poll = make_poll(
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-______________ test_close_poll_tie_broken_by_earliest_start_time _______________
-tests/test_api.py:537: in test_close_poll_tie_broken_by_earliest_start_time
-    poll = make_poll(
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_________________ test_close_poll_wrong_passphrase_returns_403 _________________
-tests/test_api.py:568: in test_close_poll_wrong_passphrase_returns_403
-    poll = make_poll(passphrase="rightpass99")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-___________________ test_close_poll_nonexistent_returns_404 ____________________
-tests/test_api.py:579: in test_close_poll_nonexistent_returns_404
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-____________________ test_closed_poll_rejects_new_responses ____________________
-tests/test_api.py:590: in test_closed_poll_rejects_new_responses
-    poll = make_poll(passphrase="closeme12345")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_________________________ test_add_time_slots_succeeds _________________________
-tests/test_api.py:610: in test_add_time_slots_succeeds
-    poll = make_poll(passphrase="addslot12345")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_______________ test_add_time_slots_invalid_date_format_rejected _______________
-tests/test_api.py:627: in test_add_time_slots_invalid_date_format_rejected
-    poll = make_poll(passphrase="addfmtdate12")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_______________ test_add_time_slots_invalid_time_format_rejected _______________
-tests/test_api.py:641: in test_add_time_slots_invalid_time_format_rejected
-    poll = make_poll(passphrase="addfmttime12")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_______________ test_add_time_slots_wrong_passphrase_returns_403 _______________
-tests/test_api.py:655: in test_add_time_slots_wrong_passphrase_returns_403
-    poll = make_poll(passphrase="realpass123")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_______________ test_add_time_slots_nonexistent_poll_returns_404 _______________
-tests/test_api.py:669: in test_add_time_slots_nonexistent_poll_returns_404
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_________________ test_add_time_slots_on_closed_poll_rejected __________________
-tests/test_api.py:683: in test_add_time_slots_on_closed_poll_rejected
-    poll = make_poll(passphrase="closeslot123")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-__________________ test_delete_participant_responses_succeeds __________________
-tests/test_api.py:702: in test_delete_participant_responses_succeeds
-    poll = make_poll(passphrase="delpart12345")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_______________ test_delete_nonexistent_participant_returns_zero _______________
-tests/test_api.py:728: in test_delete_nonexistent_participant_returns_zero
-    poll = make_poll(passphrase="delnone12345")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________ test_delete_participant_wrong_passphrase_returns_403 _____________
-tests/test_api.py:741: in test_delete_participant_wrong_passphrase_returns_403
-    poll = make_poll(passphrase="realpass456")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________ test_delete_participant_nonexistent_poll_returns_404 _____________
-tests/test_api.py:752: in test_delete_participant_nonexistent_poll_returns_404
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_____________________ test_passphrase_stored_as_plaintext ______________________
-tests/test_api.py:764: in test_passphrase_stored_as_plaintext
-    make_poll(passphrase=plain)
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_________________ test_delete_response_count_equals_slot_count _________________
-tests/test_api.py:795: in test_delete_response_count_equals_slot_count
-    poll = make_poll(passphrase="delcount1234")
-tests/conftest.py:74: in _make
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-_______________ test_poll_expiration_cleanup_deletes_stale_polls _______________
-tests/test_api.py:822: in test_poll_expiration_cleanup_deletes_stale_polls
-    assert os.path.exists(entry), f"Server entry not found at {entry}"
-E   AssertionError: Server entry not found at /eval_assets/server/src/index.ts
+______________________ test_tracker_module_is_importable _______________________
+tests/test_tracker.py:96: in _import_tracker
+    import tracker as _tracker
+E   ModuleNotFoundError: No module named 'tracker'
+
+During handling of the above exception, another exception occurred:
+tests/test_tracker.py:104: in test_tracker_module_is_importable
+    tracker = _import_tracker()
+tests/test_tracker.py:98: in _import_tracker
+    assert False, f"tracker module could not be imported: {exc}"
+E   AssertionError: tracker module could not be imported: No module named 'tracker'
 E   assert False
-E    +  where False = <function exists at 0x7f4fdd1bdea0>('/eval_assets/server/src/index.ts')
-E    +    where <function exists at 0x7f4fdd1bdea0> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.exists
-E    +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path
-_______________ test_spa_fallback_returns_html_for_client_route ________________
-tests/test_api.py:935: in test_spa_fallback_returns_html_for_client_route
-    assert server_url is not None, "Server is not running"
-E   AssertionError: Server is not running
-E   assert None is not None
-============================== 49 failed in 1.13s ==============================
+_______________________ test_main_returns_int_exit_code ________________________
+tests/test_tracker.py:96: in _import_tracker
+    import tracker as _tracker
+E   ModuleNotFoundError: No module named 'tracker'
+
+During handling of the above exception, another exception occurred:
+tests/test_tracker.py:110: in test_main_returns_int_exit_code
+    tracker = _import_tracker()
+tests/test_tracker.py:98: in _import_tracker
+    assert False, f"tracker module could not be imported: {exc}"
+E   AssertionError: tracker module could not be imported: No module named 'tracker'
+E   assert False
+_____________________ test_no_args_exits_with_invalid_code _____________________
+tests/test_tracker.py:122: in test_no_args_exits_with_invalid_code
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+________________________ test_no_args_error_colored_red ________________________
+tests/test_tracker.py:127: in test_no_args_error_colored_red
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+_______________ test_invalid_usage_error_contains_literal_phrase _______________
+tests/test_tracker.py:133: in test_invalid_usage_error_contains_literal_phrase
+    assert "Error: invalid usage" in strip_ansi(result.stderr)
+E   assert 'Error: invalid usage' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = strip_ansi("/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n")
+E    +    where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'bogus'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+______________________ test_unknown_command_exits_invalid ______________________
+tests/test_tracker.py:139: in test_unknown_command_exits_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'bogus'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+____________________ test_start_without_project_is_invalid _____________________
+tests/test_tracker.py:145: in test_start_without_project_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+___________________ test_start_with_empty_project_is_invalid ___________________
+tests/test_tracker.py:151: in test_start_with_empty_project_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', ''], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+________________ test_start_with_too_many_arguments_is_invalid _________________
+tests/test_tracker.py:158: in test_start_with_too_many_arguments_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Alpha', 'Beta'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+___________________ test_stop_with_extra_argument_is_invalid ___________________
+tests/test_tracker.py:164: in test_stop_with_extra_argument_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop', 'extra'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+__________________ test_status_with_extra_argument_is_invalid __________________
+tests/test_tracker.py:170: in test_status_with_extra_argument_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status', 'extra'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+__________________ test_report_without_subcommand_is_invalid ___________________
+tests/test_tracker.py:176: in test_report_without_subcommand_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+__________________ test_report_unknown_subcommand_is_invalid ___________________
+tests/test_tracker.py:182: in test_report_unknown_subcommand_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'month'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+________________ test_report_day_with_extra_argument_is_invalid ________________
+tests/test_tracker.py:189: in test_report_day_with_extra_argument_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'day', 'extra'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+_______________ test_report_week_with_extra_argument_is_invalid ________________
+tests/test_tracker.py:196: in test_report_week_with_extra_argument_is_invalid
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'week', 'extra'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+_________________ test_invalid_invocation_does_not_create_log __________________
+tests/test_tracker.py:202: in test_invalid_invocation_does_not_create_log
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'bogus'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+_____________ test_invalid_invocation_does_not_modify_existing_log _____________
+tests/test_tracker.py:212: in test_invalid_invocation_does_not_modify_existing_log
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'bogus'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+____________________ test_start_first_call_creates_log_file ____________________
+tests/test_tracker.py:223: in test_start_first_call_creates_log_file
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Alpha'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+______________________ test_start_success_exit_code_zero _______________________
+tests/test_tracker.py:229: in test_start_success_exit_code_zero
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Alpha'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+________________ test_start_persists_session_with_required_keys ________________
+tests/test_tracker.py:234: in test_start_persists_session_with_required_keys
+    log = read_log(tmp_path)
+tests/test_tracker.py:64: in read_log
+    with open(cwd / "time_log.json") as f:
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_start_persists_session_wi0/time_log.json'
+_______________________ test_start_records_project_name ________________________
+tests/test_tracker.py:244: in test_start_records_project_name
+    log = read_log(tmp_path)
+tests/test_tracker.py:64: in read_log
+    with open(cwd / "time_log.json") as f:
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_start_records_project_nam0/time_log.json'
+__________________ test_start_sets_end_to_null_while_running ___________________
+tests/test_tracker.py:250: in test_start_sets_end_to_null_while_running
+    log = read_log(tmp_path)
+tests/test_tracker.py:64: in read_log
+    with open(cwd / "time_log.json") as f:
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_start_sets_end_to_null_wh0/time_log.json'
+_________________ test_start_timestamp_is_iso_second_precision _________________
+tests/test_tracker.py:256: in test_start_timestamp_is_iso_second_precision
+    log = read_log(tmp_path)
+tests/test_tracker.py:64: in read_log
+    with open(cwd / "time_log.json") as f:
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_start_timestamp_is_iso_se0/time_log.json'
+________________ test_start_duplicate_timer_fails_with_exit_one ________________
+tests/test_tracker.py:263: in test_start_duplicate_timer_fails_with_exit_one
+    assert result.returncode == 1
+E   assert 2 == 1
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Beta'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+____________________ test_start_duplicate_error_colored_red ____________________
+tests/test_tracker.py:269: in test_start_duplicate_error_colored_red
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Beta'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+______________ test_start_duplicate_error_names_existing_project _______________
+tests/test_tracker.py:276: in test_start_duplicate_error_names_existing_project
+    assert "Alpha" in strip_ansi(result.stderr)
+E   assert 'Alpha' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = strip_ansi("/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n")
+E    +    where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Beta'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+______________ test_start_duplicate_error_contains_literal_phrase ______________
+tests/test_tracker.py:283: in test_start_duplicate_error_contains_literal_phrase
+    assert "Error: a timer is already running" in strip_ansi(result.stderr)
+E   assert 'Error: a timer is already running' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = strip_ansi("/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n")
+E    +    where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Beta'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+__________________ test_start_duplicate_does_not_modify_file ___________________
+tests/test_tracker.py:288: in test_start_duplicate_does_not_modify_file
+    before = (tmp_path / "time_log.json").read_bytes()
+/usr/lib/python3.10/pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+/usr/lib/python3.10/pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_start_duplicate_does_not_0/time_log.json'
+_______________ test_start_success_message_uses_cyan_for_project _______________
+tests/test_tracker.py:296: in test_start_success_message_uses_cyan_for_project
+    assert CYAN in result.stdout
+E   assert '\x1b[36m' in ''
+E    +  where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Alpha'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+______________ test_start_success_message_contains_literal_phrase ______________
+tests/test_tracker.py:303: in test_start_success_message_contains_literal_phrase
+    assert "Started timer for" in strip_ansi(result.stdout)
+E   assert 'Started timer for' in ''
+E    +  where '' = strip_ansi('')
+E    +    where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'start', 'Alpha'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+_______________________ test_log_file_ends_with_newline ________________________
+tests/test_tracker.py:309: in test_log_file_ends_with_newline
+    content = (tmp_path / "time_log.json").read_bytes()
+/usr/lib/python3.10/pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+/usr/lib/python3.10/pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_log_file_ends_with_newlin0/time_log.json'
+__________________ test_start_appends_rather_than_overwriting __________________
+tests/test_tracker.py:320: in test_start_appends_rather_than_overwriting
+    assert "New" in projects
+E   AssertionError: assert 'New' in ['Old']
+_______________________ test_stop_success_exit_code_zero _______________________
+tests/test_tracker.py:331: in test_stop_success_exit_code_zero
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+_______________________ test_stop_sets_end_to_iso_string _______________________
+tests/test_tracker.py:337: in test_stop_sets_end_to_iso_string
+    log = read_log(tmp_path)
+tests/test_tracker.py:64: in read_log
+    with open(cwd / "time_log.json") as f:
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_stop_sets_end_to_iso_stri0/time_log.json'
+__________________ test_stop_with_no_running_timer_exits_one ___________________
+tests/test_tracker.py:344: in test_stop_with_no_running_timer_exits_one
+    assert result.returncode == 1
+E   assert 2 == 1
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+____________________ test_stop_no_running_error_colored_red ____________________
+tests/test_tracker.py:349: in test_stop_no_running_error_colored_red
+    assert RED in result.stderr
+E   assert '\x1b[31m' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+______________ test_stop_no_running_error_contains_literal_phrase ______________
+tests/test_tracker.py:355: in test_stop_no_running_error_contains_literal_phrase
+    assert "Error: no timer is currently running" in strip_ansi(result.stderr)
+E   assert 'Error: no timer is currently running' in "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n"
+E    +  where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = strip_ansi("/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n")
+E    +    where "/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stderr
+_____________________ test_stop_without_log_file_exits_one _____________________
+tests/test_tracker.py:361: in test_stop_without_log_file_exits_one
+    assert result.returncode == 1
+E   assert 2 == 1
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+_______ test_stop_message_contains_project_in_cyan_and_duration_in_green _______
+tests/test_tracker.py:367: in test_stop_message_contains_project_in_cyan_and_duration_in_green
+    assert CYAN in result.stdout
+E   assert '\x1b[36m' in ''
+E    +  where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+___________________ test_stop_message_renders_duration_h_m_s ___________________
+tests/test_tracker.py:375: in test_stop_message_renders_duration_h_m_s
+    assert DURATION_REGEX.search(strip_ansi(result.stdout))
+E   assert None
+E    +  where None = <built-in method search of re.Pattern object at 0x7fb2cb0958b0>('')
+E    +    where <built-in method search of re.Pattern object at 0x7fb2cb0958b0> = re.compile('\\d+h\\s+\\d+m\\s+\\d+s').search
+E    +    and   '' = strip_ansi('')
+E    +      where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+______________ test_stop_success_message_contains_literal_phrase _______________
+tests/test_tracker.py:382: in test_stop_success_message_contains_literal_phrase
+    assert "Stopped timer for" in strip_ansi(result.stdout)
+E   assert 'Stopped timer for' in ''
+E    +  where '' = strip_ansi('')
+E    +    where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'stop'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+_______________ test_stop_message_wraps_duration_in_parentheses ________________
+tests/test_tracker.py:390: in test_stop_message_wraps_duration_in_parentheses
+    assert re.search(r"\(\d+h\s+\d+m\s+\d+s\)", plain)
+E   AssertionError: assert None
+E    +  where None = <function search at 0x7fb2cb9e36d0>('\\(\\d+h\\s+\\d+m\\s+\\d+s\\)', '')
+E    +    where <function search at 0x7fb2cb9e36d0> = re.search
+______________ test_stop_preserves_previously_completed_sessions _______________
+tests/test_tracker.py:405: in test_stop_preserves_previously_completed_sessions
+    assert isinstance(current["end"], str)
+E   assert False
+E    +  where False = isinstance(None, str)
+_______________________ test_status_when_idle_exits_zero _______________________
+tests/test_tracker.py:414: in test_status_when_idle_exits_zero
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+___________________ test_status_when_idle_shows_idle_message ___________________
+tests/test_tracker.py:419: in test_status_when_idle_shows_idle_message
+    assert "No timer running" in strip_ansi(result.stdout)
+E   assert 'No timer running' in ''
+E    +  where '' = strip_ansi('')
+E    +    where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+_______________________ test_status_when_idle_is_yellow ________________________
+tests/test_tracker.py:424: in test_status_when_idle_is_yellow
+    assert YELLOW in result.stdout
+E   assert '\x1b[33m' in ''
+E    +  where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+_____________________ test_status_when_running_exits_zero ______________________
+tests/test_tracker.py:430: in test_status_when_running_exits_zero
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+________________ test_status_when_running_shows_project_in_cyan ________________
+tests/test_tracker.py:436: in test_status_when_running_shows_project_in_cyan
+    assert CYAN in result.stdout
+E   assert '\x1b[36m' in ''
+E    +  where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+_______________ test_status_when_running_shows_duration_in_green _______________
+tests/test_tracker.py:443: in test_status_when_running_shows_duration_in_green
+    assert GREEN in result.stdout
+E   assert '\x1b[32m' in ''
+E    +  where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+___________ test_status_when_running_message_contains_literal_phrase ___________
+tests/test_tracker.py:451: in test_status_when_running_message_contains_literal_phrase
+    assert "Running:" in strip_ansi(result.stdout)
+E   assert 'Running:' in ''
+E    +  where '' = strip_ansi('')
+E    +    where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+___________________ test_status_without_log_file_exits_zero ____________________
+tests/test_tracker.py:457: in test_status_without_log_file_exits_zero
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'status'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+_______________________ test_report_day_empty_exits_zero _______________________
+tests/test_tracker.py:466: in test_report_day_empty_exits_zero
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'day'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+_________________ test_report_day_empty_shows_expected_message _________________
+tests/test_tracker.py:471: in test_report_day_empty_shows_expected_message
+    assert "No sessions recorded for today" in strip_ansi(result.stdout)
+E   assert 'No sessions recorded for today' in ''
+E    +  where '' = strip_ansi('')
+E    +    where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'day'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+_______________________ test_report_day_empty_is_yellow ________________________
+tests/test_tracker.py:476: in test_report_day_empty_is_yellow
+    assert YELLOW in result.stdout
+E   assert '\x1b[33m' in ''
+E    +  where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'day'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+________________ test_report_day_lists_every_project_from_today ________________
+tests/test_tracker.py:486: in test_report_day_lists_every_project_from_today
+    assert "Alpha" in plain
+E   AssertionError: assert 'Alpha' in ''
+_________________ test_report_day_hours_use_two_decimal_places _________________
+tests/test_tracker.py:495: in test_report_day_hours_use_two_decimal_places
+    assert "2.00" in plain
+E   AssertionError: assert '2.00' in ''
+_____________________ test_report_day_includes_total_label _____________________
+tests/test_tracker.py:502: in test_report_day_includes_total_label
+    assert "TOTAL" in plain
+E   AssertionError: assert 'TOTAL' in ''
+_________________ test_report_day_total_row_shows_summed_hours _________________
+tests/test_tracker.py:514: in test_report_day_total_row_shows_summed_hours
+    total_line = next(line for line in plain.splitlines() if "TOTAL" in line)
+E   StopIteration
+________________ test_report_day_sorts_rows_by_hours_descending ________________
+tests/test_tracker.py:529: in test_report_day_sorts_rows_by_hours_descending
+    assert 0 <= long_pos < med_pos < short_pos
+E   assert 0 <= -1
+_____________ test_report_day_ties_break_by_project_name_ascending _____________
+tests/test_tracker.py:539: in test_report_day_ties_break_by_project_name_ascending
+    assert plain.find("Alpha") < plain.find("Beta")
+E   AssertionError: assert -1 < -1
+E    +  where -1 = <built-in method find of str object at 0x7fb2cbbe4030>('Alpha')
+E    +    where <built-in method find of str object at 0x7fb2cbbe4030> = ''.find
+E    +  and   -1 = <built-in method find of str object at 0x7fb2cbbe4030>('Beta')
+E    +    where <built-in method find of str object at 0x7fb2cbbe4030> = ''.find
+______________ test_report_day_excludes_sessions_from_other_days _______________
+tests/test_tracker.py:550: in test_report_day_excludes_sessions_from_other_days
+    assert "Today" in plain
+E   AssertionError: assert 'Today' in ''
+________ test_report_day_aggregates_multiple_sessions_for_same_project _________
+tests/test_tracker.py:563: in test_report_day_aggregates_multiple_sessions_for_same_project
+    assert "2.00" in plain
+E   AssertionError: assert '2.00' in ''
+___________________ test_report_day_includes_running_session ___________________
+tests/test_tracker.py:574: in test_report_day_includes_running_session
+    assert "RunningProj" in plain
+E   AssertionError: assert 'RunningProj' in ''
+_________________ test_report_day_data_rows_use_cyan_and_green _________________
+tests/test_tracker.py:581: in test_report_day_data_rows_use_cyan_and_green
+    assert CYAN in stdout
+E   AssertionError: assert '\x1b[36m' in ''
+_________________ test_report_day_header_and_total_use_yellow __________________
+tests/test_tracker.py:589: in test_report_day_header_and_total_use_yellow
+    assert YELLOW in stdout
+E   AssertionError: assert '\x1b[33m' in ''
+___________ test_report_day_header_contains_project_and_hours_labels ___________
+tests/test_tracker.py:597: in test_report_day_header_contains_project_and_hours_labels
+    assert "Project" in plain
+E   AssertionError: assert 'Project' in ''
+____________________ test_report_day_has_dash_separator_row ____________________
+tests/test_tracker.py:606: in test_report_day_has_dash_separator_row
+    assert any(re.fullmatch(r"-+", line) for line in plain.splitlines())
+E   assert False
+E    +  where False = any(<generator object test_report_day_has_dash_separator_row.<locals>.<genexpr> at 0x7fb2cae90c80>)
+______________________ test_report_week_empty_exits_zero _______________________
+tests/test_tracker.py:615: in test_report_week_empty_exits_zero
+    assert result.returncode == 0
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'week'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").returncode
+________________ test_report_week_empty_shows_expected_message _________________
+tests/test_tracker.py:620: in test_report_week_empty_shows_expected_message
+    assert "No sessions recorded for this week" in strip_ansi(result.stdout)
+E   assert 'No sessions recorded for this week' in ''
+E    +  where '' = strip_ansi('')
+E    +    where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'week'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+_______________________ test_report_week_empty_is_yellow _______________________
+tests/test_tracker.py:625: in test_report_week_empty_is_yellow
+    assert YELLOW in result.stdout
+E   assert '\x1b[33m' in ''
+E    +  where '' = CompletedProcess(args=['/usr/bin/python3', '/eval_assets/tracker.py', 'report', 'week'], returncode=2, stdout='', stderr="/usr/bin/python3: can't open file '/eval_assets/tracker.py': [Errno 2] No such file or directory\n").stdout
+________________ test_report_week_lists_sessions_from_this_week ________________
+tests/test_tracker.py:640: in test_report_week_lists_sessions_from_this_week
+    assert "WeekProj" in plain
+E   AssertionError: assert 'WeekProj' in ''
+_____________ test_report_week_excludes_sessions_from_other_weeks ______________
+tests/test_tracker.py:653: in test_report_week_excludes_sessions_from_other_weeks
+    assert "ThisWeek" in plain
+E   AssertionError: assert 'ThisWeek' in ''
+____________________ test_report_week_includes_total_label _____________________
+tests/test_tracker.py:662: in test_report_week_includes_total_label
+    assert "TOTAL" in plain
+E   AssertionError: assert 'TOTAL' in ''
+________________ test_report_week_total_row_shows_summed_hours _________________
+tests/test_tracker.py:675: in test_report_week_total_row_shows_summed_hours
+    total_line = next(line for line in plain.splitlines() if "TOTAL" in line)
+E   StopIteration
+________ test_report_week_aggregates_multiple_sessions_for_same_project ________
+tests/test_tracker.py:688: in test_report_week_aggregates_multiple_sessions_for_same_project
+    assert "2.00" in plain
+E   AssertionError: assert '2.00' in ''
+________________ test_report_week_hours_use_two_decimal_places _________________
+tests/test_tracker.py:696: in test_report_week_hours_use_two_decimal_places
+    assert "2.00" in plain
+E   AssertionError: assert '2.00' in ''
+_______________ test_report_week_sorts_rows_by_hours_descending ________________
+tests/test_tracker.py:711: in test_report_week_sorts_rows_by_hours_descending
+    assert 0 <= long_pos < med_pos < short_pos
+E   assert 0 <= -1
+____________ test_report_week_ties_break_by_project_name_ascending _____________
+tests/test_tracker.py:722: in test_report_week_ties_break_by_project_name_ascending
+    assert plain.find("Alpha") < plain.find("Beta")
+E   AssertionError: assert -1 < -1
+E    +  where -1 = <built-in method find of str object at 0x7fb2cbbe4030>('Alpha')
+E    +    where <built-in method find of str object at 0x7fb2cbbe4030> = ''.find
+E    +  and   -1 = <built-in method find of str object at 0x7fb2cbbe4030>('Beta')
+E    +    where <built-in method find of str object at 0x7fb2cbbe4030> = ''.find
+________________ test_report_week_data_rows_use_cyan_and_green _________________
+tests/test_tracker.py:730: in test_report_week_data_rows_use_cyan_and_green
+    assert CYAN in stdout
+E   AssertionError: assert '\x1b[36m' in ''
+_________________ test_report_week_header_and_total_use_yellow _________________
+tests/test_tracker.py:739: in test_report_week_header_and_total_use_yellow
+    assert YELLOW in stdout
+E   AssertionError: assert '\x1b[33m' in ''
+__________ test_report_week_header_contains_project_and_hours_labels ___________
+tests/test_tracker.py:747: in test_report_week_header_contains_project_and_hours_labels
+    assert "Project" in plain
+E   AssertionError: assert 'Project' in ''
+___________________ test_report_week_has_dash_separator_row ____________________
+tests/test_tracker.py:756: in test_report_week_has_dash_separator_row
+    assert any(re.fullmatch(r"-+", line) for line in plain.splitlines())
+E   assert False
+E    +  where False = any(<generator object test_report_week_has_dash_separator_row.<locals>.<genexpr> at 0x7fb2cabdb4c0>)
+________________ test_report_week_includes_monday_start_of_week ________________
+tests/test_tracker.py:776: in test_report_week_includes_monday_start_of_week
+    assert "MondayEdge" in plain
+E   AssertionError: assert 'MondayEdge' in ''
+_________________ test_report_week_includes_sunday_end_of_week _________________
+tests/test_tracker.py:796: in test_report_week_includes_sunday_end_of_week
+    assert "SundayEdge" in plain
+E   AssertionError: assert 'SundayEdge' in ''
+_______________________ test_log_file_is_pretty_printed ________________________
+tests/test_tracker.py:807: in test_log_file_is_pretty_printed
+    content = (tmp_path / "time_log.json").read_text()
+/usr/lib/python3.10/pathlib.py:1134: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+/usr/lib/python3.10/pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_log_file_is_pretty_printe0/time_log.json'
+_____________________ test_log_file_uses_two_space_indent ______________________
+tests/test_tracker.py:816: in test_log_file_uses_two_space_indent
+    content = (tmp_path / "time_log.json").read_text()
+/usr/lib/python3.10/pathlib.py:1134: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+/usr/lib/python3.10/pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-root/pytest-0/test_log_file_uses_two_space_i0/time_log.json'
+=========================== short test summary info ============================
+FAILED tests/test_tracker.py::test_tracker_module_is_importable - AssertionEr...
+FAILED tests/test_tracker.py::test_main_returns_int_exit_code - AssertionErro...
+FAILED tests/test_tracker.py::test_no_args_exits_with_invalid_code - assert '...
+FAILED tests/test_tracker.py::test_no_args_error_colored_red - assert '\x1b[3...
+FAILED tests/test_tracker.py::test_invalid_usage_error_contains_literal_phrase
+FAILED tests/test_tracker.py::test_unknown_command_exits_invalid - assert '\x...
+FAILED tests/test_tracker.py::test_start_without_project_is_invalid - assert ...
+FAILED tests/test_tracker.py::test_start_with_empty_project_is_invalid - asse...
+FAILED tests/test_tracker.py::test_start_with_too_many_arguments_is_invalid
+FAILED tests/test_tracker.py::test_stop_with_extra_argument_is_invalid - asse...
+FAILED tests/test_tracker.py::test_status_with_extra_argument_is_invalid - as...
+FAILED tests/test_tracker.py::test_report_without_subcommand_is_invalid - ass...
+FAILED tests/test_tracker.py::test_report_unknown_subcommand_is_invalid - ass...
+FAILED tests/test_tracker.py::test_report_day_with_extra_argument_is_invalid
+FAILED tests/test_tracker.py::test_report_week_with_extra_argument_is_invalid
+FAILED tests/test_tracker.py::test_invalid_invocation_does_not_create_log - a...
+FAILED tests/test_tracker.py::test_invalid_invocation_does_not_modify_existing_log
+FAILED tests/test_tracker.py::test_start_first_call_creates_log_file - assert...
+FAILED tests/test_tracker.py::test_start_success_exit_code_zero - assert 2 == 0
+FAILED tests/test_tracker.py::test_start_persists_session_with_required_keys
+FAILED tests/test_tracker.py::test_start_records_project_name - FileNotFoundE...
+FAILED tests/test_tracker.py::test_start_sets_end_to_null_while_running - Fil...
+FAILED tests/test_tracker.py::test_start_timestamp_is_iso_second_precision - ...
+FAILED tests/test_tracker.py::test_start_duplicate_timer_fails_with_exit_one
+FAILED tests/test_tracker.py::test_start_duplicate_error_colored_red - assert...
+FAILED tests/test_tracker.py::test_start_duplicate_error_names_existing_project
+FAILED tests/test_tracker.py::test_start_duplicate_error_contains_literal_phrase
+FAILED tests/test_tracker.py::test_start_duplicate_does_not_modify_file - Fil...
+FAILED tests/test_tracker.py::test_start_success_message_uses_cyan_for_project
+FAILED tests/test_tracker.py::test_start_success_message_contains_literal_phrase
+FAILED tests/test_tracker.py::test_log_file_ends_with_newline - FileNotFoundE...
+FAILED tests/test_tracker.py::test_start_appends_rather_than_overwriting - As...
+FAILED tests/test_tracker.py::test_stop_success_exit_code_zero - assert 2 == 0
+FAILED tests/test_tracker.py::test_stop_sets_end_to_iso_string - FileNotFound...
+FAILED tests/test_tracker.py::test_stop_with_no_running_timer_exits_one - ass...
+FAILED tests/test_tracker.py::test_stop_no_running_error_colored_red - assert...
+FAILED tests/test_tracker.py::test_stop_no_running_error_contains_literal_phrase
+FAILED tests/test_tracker.py::test_stop_without_log_file_exits_one - assert 2...
+FAILED tests/test_tracker.py::test_stop_message_contains_project_in_cyan_and_duration_in_green
+FAILED tests/test_tracker.py::test_stop_message_renders_duration_h_m_s - asse...
+FAILED tests/test_tracker.py::test_stop_success_message_contains_literal_phrase
+FAILED tests/test_tracker.py::test_stop_message_wraps_duration_in_parentheses
+FAILED tests/test_tracker.py::test_stop_preserves_previously_completed_sessions
+FAILED tests/test_tracker.py::test_status_when_idle_exits_zero - assert 2 == 0
+FAILED tests/test_tracker.py::test_status_when_idle_shows_idle_message - asse...
+FAILED tests/test_tracker.py::test_status_when_idle_is_yellow - assert '\x1b[...
+FAILED tests/test_tracker.py::test_status_when_running_exits_zero - assert 2 ...
+FAILED tests/test_tracker.py::test_status_when_running_shows_project_in_cyan
+FAILED tests/test_tracker.py::test_status_when_running_shows_duration_in_green
+FAILED tests/test_tracker.py::test_status_when_running_message_contains_literal_phrase
+FAILED tests/test_tracker.py::test_status_without_log_file_exits_zero - asser...
+FAILED tests/test_tracker.py::test_report_day_empty_exits_zero - assert 2 == 0
+FAILED tests/test_tracker.py::test_report_day_empty_shows_expected_message - ...
+FAILED tests/test_tracker.py::test_report_day_empty_is_yellow - assert '\x1b[...
+FAILED tests/test_tracker.py::test_report_day_lists_every_project_from_today
+FAILED tests/test_tracker.py::test_report_day_hours_use_two_decimal_places - ...
+FAILED tests/test_tracker.py::test_report_day_includes_total_label - Assertio...
+FAILED tests/test_tracker.py::test_report_day_total_row_shows_summed_hours - ...
+FAILED tests/test_tracker.py::test_report_day_sorts_rows_by_hours_descending
+FAILED tests/test_tracker.py::test_report_day_ties_break_by_project_name_ascending
+FAILED tests/test_tracker.py::test_report_day_excludes_sessions_from_other_days
+FAILED tests/test_tracker.py::test_report_day_aggregates_multiple_sessions_for_same_project
+FAILED tests/test_tracker.py::test_report_day_includes_running_session - Asse...
+FAILED tests/test_tracker.py::test_report_day_data_rows_use_cyan_and_green - ...
+FAILED tests/test_tracker.py::test_report_day_header_and_total_use_yellow - A...
+FAILED tests/test_tracker.py::test_report_day_header_contains_project_and_hours_labels
+FAILED tests/test_tracker.py::test_report_day_has_dash_separator_row - assert...
+FAILED tests/test_tracker.py::test_report_week_empty_exits_zero - assert 2 == 0
+FAILED tests/test_tracker.py::test_report_week_empty_shows_expected_message
+FAILED tests/test_tracker.py::test_report_week_empty_is_yellow - assert '\x1b...
+FAILED tests/test_tracker.py::test_report_week_lists_sessions_from_this_week
+FAILED tests/test_tracker.py::test_report_week_excludes_sessions_from_other_weeks
+FAILED tests/test_tracker.py::test_report_week_includes_total_label - Asserti...
+FAILED tests/test_tracker.py::test_report_week_total_row_shows_summed_hours
+FAILED tests/test_tracker.py::test_report_week_aggregates_multiple_sessions_for_same_project
+FAILED tests/test_tracker.py::test_report_week_hours_use_two_decimal_places
+FAILED tests/test_tracker.py::test_report_week_sorts_rows_by_hours_descending
+FAILED tests/test_tracker.py::test_report_week_ties_break_by_project_name_ascending
+FAILED tests/test_tracker.py::test_report_week_data_rows_use_cyan_and_green
+FAILED tests/test_tracker.py::test_report_week_header_and_total_use_yellow - ...
+FAILED tests/test_tracker.py::test_report_week_header_contains_project_and_hours_labels
+FAILED tests/test_tracker.py::test_report_week_has_dash_separator_row - asser...
+FAILED tests/test_tracker.py::test_report_week_includes_monday_start_of_week
+FAILED tests/test_tracker.py::test_report_week_includes_sunday_end_of_week - ...
+FAILED tests/test_tracker.py::test_log_file_is_pretty_printed - FileNotFoundE...
+FAILED tests/test_tracker.py::test_log_file_uses_two_space_indent - FileNotFo...
+============================== 86 failed in 3.17s ==============================

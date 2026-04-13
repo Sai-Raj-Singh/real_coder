@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-
 import dataclasses
 import json
-import re
 import sys
 from enum import Enum
 from pathlib import Path
@@ -24,51 +22,46 @@ class TestResult:
 ### DO NOT MODIFY THE CODE ABOVE ###
 ### Implement the parsing logic below ###
 
-# Matches pytest verbose per-test outcome lines, e.g.
-#   tests/test_api.py::test_create_poll_returns_poll_id PASSED           [  3%]
-#   tests/test_api.py::test_get_poll_nonexistent_returns_404 FAILED      [ 33%]
-# The trailing "[ 33%]" column and any decorative characters are optional.
-_PYTEST_LINE = re.compile(
-    r'^(?P<path>\S+?\.py)::(?P<name>[^\s\[]+(?:\[[^\]]*\])?)\s+'
-    r'(?P<status>PASSED|FAILED|ERROR|SKIPPED|XFAIL|XPASS)\b'
-)
-
-_STATUS_MAP = {
-    'PASSED': TestStatus.PASSED,
-    'XPASS': TestStatus.PASSED,
-    'FAILED': TestStatus.FAILED,
-    'XFAIL': TestStatus.FAILED,
-    'ERROR': TestStatus.ERROR,
-    'SKIPPED': TestStatus.SKIPPED,
-}
-
-
-def _strip_ansi(text: str) -> str:
-    return re.sub(r'\x1b\[[0-9;]*[A-Za-z]', '', text)
-
+import re
 
 def parse_test_output(stdout_content: str, stderr_content: str) -> List[TestResult]:
     """
-    Parse pytest verbose output and extract per-test results.
-    Deduplicates by fully-qualified test identifier.
+    Parse pytest verbose output and extract test results.
+    
+    Parses lines like:
+        tests/test_app.py::test_create_app_exposes_required_routes PASSED
+        tests/test_loaders.py::test_load_expected_packets_missing_column FAILED
+        tests/test_retry_queue.py::test_retry_single_item_idempotent SKIPPED
+        tests/test_source_scanner.py::test_parse_document_filename_invalid_sets_error ERROR
     """
-    results: List[TestResult] = []
-    seen: set = set()
+    results = []
+    seen = {}
+    ordered_names = []
+    combined = stdout_content + "\n" + stderr_content
 
-    combined = _strip_ansi(stdout_content) + '\n' + _strip_ansi(stderr_content)
-    for raw_line in combined.splitlines():
-        line = raw_line.rstrip()
-        if not line:
-            continue
-        m = _PYTEST_LINE.match(line.lstrip())
-        if not m:
-            continue
-        name = f"{m.group('path')}::{m.group('name')}"
-        if name in seen:
-            continue
-        seen.add(name)
-        status = _STATUS_MAP.get(m.group('status'), TestStatus.ERROR)
-        results.append(TestResult(name=name, status=status))
+    # Matches lines like:
+    #   tests/test_cli.py::TestMainSignature::test_main_importable PASSED
+    #   tests/test_cli.py::test_parse_args <- ../app/tests/test_cli.py PASSED
+    pattern = re.compile(
+        r"(tests/[^\s:]+(?:::[^\s]+)+)(?:\s+<-[^\n]+)?\s+(PASSED|FAILED|ERROR|SKIPPED|XFAIL|XPASS)",
+        re.MULTILINE,
+    )
+    for match in pattern.finditer(combined):
+        test_name = match.group(1).strip()
+        status_str = match.group(2).upper()
+        if status_str == "XPASS":
+            status_str = "PASSED"
+        elif status_str == "XFAIL":
+            status_str = "FAILED"
+        if status_str in ("ERROR", "SKIPPED"):
+            status_str = "FAILED"
+        status = TestStatus[status_str]
+        if test_name not in seen:
+            ordered_names.append(test_name)
+        seen[test_name] = status
+
+    for test_name in ordered_names:
+        results.append(TestResult(name=test_name, status=seen[test_name]))
 
     return results
 

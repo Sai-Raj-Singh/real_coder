@@ -2,7 +2,7 @@
 # BASE IMAGE
 ###############################################
 
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -18,6 +18,14 @@ RUN apt-get update && apt-get install -y \
     python-is-python3 \
     unzip \
     && rm -rf /var/lib/apt/lists/*
+
+###############################################
+# PYTHON DEPENDENCIES
+###############################################
+
+RUN pip3 install \
+    pytest \
+    pytest-cov
 
 ###############################################
 # WORKING DIRECTORY + GIT SETUP
@@ -38,24 +46,5 @@ RUN git init \
 # Populated at RUNTIME by the evaluation script.
 
 RUN mkdir -p /eval_assets
-
-###############################################
-# NODE.JS RUNTIME (for meeting-poll solution)
-###############################################
-
-RUN apt-get update && apt-get install -y \
-        curl \
-        ca-certificates \
-        gnupg \
-        build-essential \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
-    && rm -rf /var/lib/apt/lists/*
-
-###############################################
-# PYTHON TEST DEPENDENCIES (pytest + requests)
-###############################################
-
-RUN pip3 install --no-cache-dir pytest==8.3.2 requests==2.32.3
 
 CMD ["/bin/bash"]

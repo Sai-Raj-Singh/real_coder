@@ -1,199 +1,347 @@
 {
   "tests": [
     {
-      "name": "tests/test_api.py::test_database_uses_wal_mode",
+      "name": "tests/test_tracker.py::test_tracker_module_is_importable",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_returns_poll_id",
+      "name": "tests/test_tracker.py::test_main_returns_int_exit_code",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_missing_title_rejected",
+      "name": "tests/test_tracker.py::test_no_args_exits_with_invalid_code",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_title_too_long_rejected",
+      "name": "tests/test_tracker.py::test_no_args_error_colored_red",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_short_passphrase_rejected",
+      "name": "tests/test_tracker.py::test_invalid_usage_error_contains_literal_phrase",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_empty_time_slots_rejected",
+      "name": "tests/test_tracker.py::test_unknown_command_exits_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_invalid_date_rejected",
+      "name": "tests/test_tracker.py::test_start_without_project_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_invalid_time_rejected",
+      "name": "tests/test_tracker.py::test_start_with_empty_project_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_non_24h_time_format_rejected",
+      "name": "tests/test_tracker.py::test_start_with_too_many_arguments_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_empty_title_rejected",
+      "name": "tests/test_tracker.py::test_stop_with_extra_argument_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_non_iso_date_format_rejected",
+      "name": "tests/test_tracker.py::test_status_with_extra_argument_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_description_too_long_rejected",
+      "name": "tests/test_tracker.py::test_report_without_subcommand_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_create_poll_long_passphrase_rejected",
+      "name": "tests/test_tracker.py::test_report_unknown_subcommand_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_get_poll_returns_expected_shape",
+      "name": "tests/test_tracker.py::test_report_day_with_extra_argument_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_get_poll_slots_sorted_by_date_then_time",
+      "name": "tests/test_tracker.py::test_report_week_with_extra_argument_is_invalid",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_get_poll_nonexistent_returns_404",
+      "name": "tests/test_tracker.py::test_invalid_invocation_does_not_create_log",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_creates_entries",
+      "name": "tests/test_tracker.py::test_invalid_invocation_does_not_modify_existing_log",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_duplicate_name_rejected",
+      "name": "tests/test_tracker.py::test_start_first_call_creates_log_file",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_missing_participant_name_rejected",
+      "name": "tests/test_tracker.py::test_start_success_exit_code_zero",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_empty_participant_name_rejected",
+      "name": "tests/test_tracker.py::test_start_persists_session_with_required_keys",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_long_participant_name_rejected",
+      "name": "tests/test_tracker.py::test_start_records_project_name",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_invalid_availability_value_rejected",
+      "name": "tests/test_tracker.py::test_start_sets_end_to_null_while_running",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_slot_from_other_poll_rejected",
+      "name": "tests/test_tracker.py::test_start_timestamp_is_iso_second_precision",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_invalid_slot_id_rejected",
+      "name": "tests/test_tracker.py::test_start_duplicate_timer_fails_with_exit_one",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_submit_response_nonexistent_poll_returns_404",
+      "name": "tests/test_tracker.py::test_start_duplicate_error_colored_red",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_get_poll_reflects_submitted_response",
+      "name": "tests/test_tracker.py::test_start_duplicate_error_names_existing_project",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_auth_correct_passphrase_returns_valid",
+      "name": "tests/test_tracker.py::test_start_duplicate_error_contains_literal_phrase",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_auth_wrong_passphrase_returns_403",
+      "name": "tests/test_tracker.py::test_start_duplicate_does_not_modify_file",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_auth_nonexistent_poll_returns_404",
+      "name": "tests/test_tracker.py::test_start_success_message_uses_cyan_for_project",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_close_poll_returns_winning_slot",
+      "name": "tests/test_tracker.py::test_start_success_message_contains_literal_phrase",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_close_poll_tie_broken_by_earliest_date",
+      "name": "tests/test_tracker.py::test_log_file_ends_with_newline",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_close_poll_tie_broken_by_earliest_start_time",
+      "name": "tests/test_tracker.py::test_start_appends_rather_than_overwriting",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_close_poll_wrong_passphrase_returns_403",
+      "name": "tests/test_tracker.py::test_stop_success_exit_code_zero",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_close_poll_nonexistent_returns_404",
+      "name": "tests/test_tracker.py::test_stop_sets_end_to_iso_string",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_closed_poll_rejects_new_responses",
+      "name": "tests/test_tracker.py::test_stop_with_no_running_timer_exits_one",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_add_time_slots_succeeds",
+      "name": "tests/test_tracker.py::test_stop_no_running_error_colored_red",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_add_time_slots_invalid_date_format_rejected",
+      "name": "tests/test_tracker.py::test_stop_no_running_error_contains_literal_phrase",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_add_time_slots_invalid_time_format_rejected",
+      "name": "tests/test_tracker.py::test_stop_without_log_file_exits_one",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_add_time_slots_wrong_passphrase_returns_403",
+      "name": "tests/test_tracker.py::test_stop_message_contains_project_in_cyan_and_duration_in_green",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_add_time_slots_nonexistent_poll_returns_404",
+      "name": "tests/test_tracker.py::test_stop_message_renders_duration_h_m_s",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_add_time_slots_on_closed_poll_rejected",
+      "name": "tests/test_tracker.py::test_stop_success_message_contains_literal_phrase",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_delete_participant_responses_succeeds",
+      "name": "tests/test_tracker.py::test_stop_message_wraps_duration_in_parentheses",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_delete_nonexistent_participant_returns_zero",
+      "name": "tests/test_tracker.py::test_stop_preserves_previously_completed_sessions",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_delete_participant_wrong_passphrase_returns_403",
+      "name": "tests/test_tracker.py::test_status_when_idle_exits_zero",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_delete_participant_nonexistent_poll_returns_404",
+      "name": "tests/test_tracker.py::test_status_when_idle_shows_idle_message",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_passphrase_stored_as_plaintext",
+      "name": "tests/test_tracker.py::test_status_when_idle_is_yellow",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_delete_response_count_equals_slot_count",
+      "name": "tests/test_tracker.py::test_status_when_running_exits_zero",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_poll_expiration_cleanup_deletes_stale_polls",
+      "name": "tests/test_tracker.py::test_status_when_running_shows_project_in_cyan",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_api.py::test_spa_fallback_returns_html_for_client_route",
+      "name": "tests/test_tracker.py::test_status_when_running_shows_duration_in_green",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_status_when_running_message_contains_literal_phrase",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_status_without_log_file_exits_zero",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_empty_exits_zero",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_empty_shows_expected_message",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_empty_is_yellow",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_lists_every_project_from_today",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_hours_use_two_decimal_places",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_includes_total_label",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_total_row_shows_summed_hours",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_sorts_rows_by_hours_descending",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_ties_break_by_project_name_ascending",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_excludes_sessions_from_other_days",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_aggregates_multiple_sessions_for_same_project",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_includes_running_session",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_data_rows_use_cyan_and_green",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_header_and_total_use_yellow",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_header_contains_project_and_hours_labels",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_day_has_dash_separator_row",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_empty_exits_zero",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_empty_shows_expected_message",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_empty_is_yellow",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_lists_sessions_from_this_week",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_excludes_sessions_from_other_weeks",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_includes_total_label",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_total_row_shows_summed_hours",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_aggregates_multiple_sessions_for_same_project",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_hours_use_two_decimal_places",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_sorts_rows_by_hours_descending",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_ties_break_by_project_name_ascending",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_data_rows_use_cyan_and_green",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_header_and_total_use_yellow",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_header_contains_project_and_hours_labels",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_has_dash_separator_row",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_includes_monday_start_of_week",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_report_week_includes_sunday_end_of_week",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_log_file_is_pretty_printed",
+      "status": "PASSED"
+    },
+    {
+      "name": "tests/test_tracker.py::test_log_file_uses_two_space_indent",
       "status": "PASSED"
     }
   ]
