@@ -66,7 +66,7 @@ Running all tests...
     failure_test.go:166: chain did not reach its end-of-chain marker
         === RUN   TestHelper_FailurePath
             fluenthttp.go:20: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
+        --- FAIL: TestHelper_FailurePath (0.01s)
         FAIL
 --- FAIL: TestFailure_TransportErrorReportsAndChains (0.01s)
 === RUN   TestFailure_JSONParseErrorReportsAndChains
@@ -75,7 +75,7 @@ Running all tests...
             fluenthttp.go:15: fluenthttp: stub — not implemented
         --- FAIL: TestHelper_FailurePath (0.00s)
         FAIL
---- FAIL: TestFailure_JSONParseErrorReportsAndChains (0.01s)
+--- FAIL: TestFailure_JSONParseErrorReportsAndChains (0.00s)
 === RUN   TestFailure_ExpectationChainContinuesAfterFailedAssertion
     failure_test.go:187: chain did not reach its end-of-chain marker
         === RUN   TestHelper_FailurePath
@@ -89,7 +89,7 @@ Running all tests...
             fluenthttp.go:15: fluenthttp: stub — not implemented
         --- FAIL: TestHelper_FailurePath (0.00s)
         FAIL
---- FAIL: TestFailure_JSONAssertionChainContinuesAfterFailedAssertion (0.01s)
+--- FAIL: TestFailure_JSONAssertionChainContinuesAfterFailedAssertion (0.00s)
 === RUN   TestFailure_StatusFailureMessageContainsAllFields
     failure_test.go:241: failure message missing required content "987"
         === RUN   TestHelper_FailurePath
@@ -202,5 +202,5 @@ Running all tests...
     fluenthttp.go:15: fluenthttp: stub — not implemented
 --- FAIL: TestJSON_SeedChainEndToEnd (0.00s)
 FAIL
-FAIL	fluenthttp_tests/tests	0.049s
+FAIL	fluenthttp_tests/tests	0.042s
 FAIL

@@ -1,6 +1,6 @@
 Running all tests...
 === RUN   TestExpectation_StatusMatch
---- PASS: TestExpectation_StatusMatch (0.00s)
+--- PASS: TestExpectation_StatusMatch (0.01s)
 === RUN   TestExpectation_HeaderMatchesRegex
 --- PASS: TestExpectation_HeaderMatchesRegex (0.00s)
 === RUN   TestExpectation_CookieAssertion
@@ -83,4 +83,4 @@ Running all tests...
 === RUN   TestJSON_SeedChainEndToEnd
 --- PASS: TestJSON_SeedChainEndToEnd (0.00s)
 PASS
-ok  	fluenthttp_tests/tests	0.089s
+ok  	fluenthttp_tests/tests	0.096s
