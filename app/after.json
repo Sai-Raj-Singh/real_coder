@@ -1,347 +1,163 @@
 {
   "tests": [
     {
-      "name": "tests/test_tracker.py::test_tracker_module_is_importable",
+      "name": "TestExpectation_StatusMatch",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_main_returns_int_exit_code",
+      "name": "TestExpectation_HeaderMatchesRegex",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_no_args_exits_with_invalid_code",
+      "name": "TestExpectation_CookieAssertion",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_no_args_error_colored_red",
+      "name": "TestExpectation_BodyMatchesRegex",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_invalid_usage_error_contains_literal_phrase",
+      "name": "TestExpectation_JSONParsesBody",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_unknown_command_exits_invalid",
+      "name": "TestExpectation_MultipleAssertionsReuseExpectation",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_without_project_is_invalid",
+      "name": "TestRequest_FluentChainMergesAllOptions",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_with_empty_project_is_invalid",
+      "name": "TestStartServer_ReturnsWorkingClient",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_with_too_many_arguments_is_invalid",
+      "name": "TestTestServer_CloseIsCallable",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_with_extra_argument_is_invalid",
+      "name": "TestNewClient_PrefixesBaseURL",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_status_with_extra_argument_is_invalid",
+      "name": "TestClient_GetSendsGET",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_report_without_subcommand_is_invalid",
+      "name": "TestClient_PostSendsPOST",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_report_unknown_subcommand_is_invalid",
+      "name": "TestClient_PutSendsPUT",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_report_day_with_extra_argument_is_invalid",
+      "name": "TestClient_PatchSendsPATCH",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_report_week_with_extra_argument_is_invalid",
+      "name": "TestClient_DeleteSendsDELETE",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_invalid_invocation_does_not_create_log",
+      "name": "TestRequest_WithHeaderSendsHeader",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_invalid_invocation_does_not_modify_existing_log",
+      "name": "TestRequest_WithCookieSendsCookie",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_first_call_creates_log_file",
+      "name": "TestRequest_WithBodyStringSentVerbatim",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_success_exit_code_zero",
+      "name": "TestRequest_WithBodyBytesSentVerbatim",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_persists_session_with_required_keys",
+      "name": "TestRequest_WithBodyNonRawMarshalsAsJSON",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_records_project_name",
+      "name": "TestFailure_TransportErrorReportsAndChains",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_sets_end_to_null_while_running",
+      "name": "TestFailure_JSONParseErrorReportsAndChains",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_timestamp_is_iso_second_precision",
+      "name": "TestFailure_ExpectationChainContinuesAfterFailedAssertion",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_duplicate_timer_fails_with_exit_one",
+      "name": "TestFailure_JSONAssertionChainContinuesAfterFailedAssertion",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_duplicate_error_colored_red",
+      "name": "TestFailure_StatusFailureMessageContainsAllFields",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_duplicate_error_names_existing_project",
+      "name": "TestFailure_TransportErrorMessageUsesNoneSentinel",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_duplicate_error_contains_literal_phrase",
+      "name": "TestJSON_HasFieldNarrowsScopeToResolvedValue",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_duplicate_does_not_modify_file",
+      "name": "TestJSON_FieldEqualsNumericNormalization",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_success_message_uses_cyan_for_project",
+      "name": "TestJSON_FieldEqualsFloat",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_success_message_contains_literal_phrase",
+      "name": "TestJSON_FieldEqualsString",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_log_file_ends_with_newline",
+      "name": "TestJSON_FieldEqualsBoolean",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_start_appends_rather_than_overwriting",
+      "name": "TestJSON_FieldEqualsDoesNotNarrowScope",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_success_exit_code_zero",
+      "name": "TestJSON_FieldMatchesRegex",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_sets_end_to_iso_string",
+      "name": "TestJSON_FieldMatchesDoesNotNarrowScope",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_with_no_running_timer_exits_one",
+      "name": "TestJSON_IsArrayOnRoot",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_no_running_error_colored_red",
+      "name": "TestJSON_LengthOnArray",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_no_running_error_contains_literal_phrase",
+      "name": "TestJSON_PathDotNotationResolvesNestedObjects",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_without_log_file_exits_one",
+      "name": "TestJSON_PathBracketNotationResolvesArrayIndex",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_message_contains_project_in_cyan_and_duration_in_green",
+      "name": "TestJSON_EmptyPathReferencesCurrentScope",
       "status": "PASSED"
     },
     {
-      "name": "tests/test_tracker.py::test_stop_message_renders_duration_h_m_s",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_stop_success_message_contains_literal_phrase",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_stop_message_wraps_duration_in_parentheses",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_stop_preserves_previously_completed_sessions",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_when_idle_exits_zero",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_when_idle_shows_idle_message",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_when_idle_is_yellow",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_when_running_exits_zero",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_when_running_shows_project_in_cyan",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_when_running_shows_duration_in_green",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_when_running_message_contains_literal_phrase",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_status_without_log_file_exits_zero",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_empty_exits_zero",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_empty_shows_expected_message",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_empty_is_yellow",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_lists_every_project_from_today",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_hours_use_two_decimal_places",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_includes_total_label",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_total_row_shows_summed_hours",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_sorts_rows_by_hours_descending",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_ties_break_by_project_name_ascending",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_excludes_sessions_from_other_days",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_aggregates_multiple_sessions_for_same_project",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_includes_running_session",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_data_rows_use_cyan_and_green",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_header_and_total_use_yellow",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_header_contains_project_and_hours_labels",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_day_has_dash_separator_row",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_empty_exits_zero",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_empty_shows_expected_message",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_empty_is_yellow",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_lists_sessions_from_this_week",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_excludes_sessions_from_other_weeks",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_includes_total_label",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_total_row_shows_summed_hours",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_aggregates_multiple_sessions_for_same_project",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_hours_use_two_decimal_places",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_sorts_rows_by_hours_descending",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_ties_break_by_project_name_ascending",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_data_rows_use_cyan_and_green",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_header_and_total_use_yellow",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_header_contains_project_and_hours_labels",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_has_dash_separator_row",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_includes_monday_start_of_week",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_report_week_includes_sunday_end_of_week",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_log_file_is_pretty_printed",
-      "status": "PASSED"
-    },
-    {
-      "name": "tests/test_tracker.py::test_log_file_uses_two_space_indent",
+      "name": "TestJSON_SeedChainEndToEnd",
       "status": "PASSED"
     }
   ]

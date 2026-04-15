@@ -1,92 +1,86 @@
 Running all tests...
-============================= test session starts ==============================
-collecting ... collected 86 items
-
-tests/test_tracker.py::test_tracker_module_is_importable PASSED          [  1%]
-tests/test_tracker.py::test_main_returns_int_exit_code PASSED            [  2%]
-tests/test_tracker.py::test_no_args_exits_with_invalid_code PASSED       [  3%]
-tests/test_tracker.py::test_no_args_error_colored_red PASSED             [  4%]
-tests/test_tracker.py::test_invalid_usage_error_contains_literal_phrase PASSED [  5%]
-tests/test_tracker.py::test_unknown_command_exits_invalid PASSED         [  6%]
-tests/test_tracker.py::test_start_without_project_is_invalid PASSED      [  8%]
-tests/test_tracker.py::test_start_with_empty_project_is_invalid PASSED   [  9%]
-tests/test_tracker.py::test_start_with_too_many_arguments_is_invalid PASSED [ 10%]
-tests/test_tracker.py::test_stop_with_extra_argument_is_invalid PASSED   [ 11%]
-tests/test_tracker.py::test_status_with_extra_argument_is_invalid PASSED [ 12%]
-tests/test_tracker.py::test_report_without_subcommand_is_invalid PASSED  [ 13%]
-tests/test_tracker.py::test_report_unknown_subcommand_is_invalid PASSED  [ 15%]
-tests/test_tracker.py::test_report_day_with_extra_argument_is_invalid PASSED [ 16%]
-tests/test_tracker.py::test_report_week_with_extra_argument_is_invalid PASSED [ 17%]
-tests/test_tracker.py::test_invalid_invocation_does_not_create_log PASSED [ 18%]
-tests/test_tracker.py::test_invalid_invocation_does_not_modify_existing_log PASSED [ 19%]
-tests/test_tracker.py::test_start_first_call_creates_log_file PASSED     [ 20%]
-tests/test_tracker.py::test_start_success_exit_code_zero PASSED          [ 22%]
-tests/test_tracker.py::test_start_persists_session_with_required_keys PASSED [ 23%]
-tests/test_tracker.py::test_start_records_project_name PASSED            [ 24%]
-tests/test_tracker.py::test_start_sets_end_to_null_while_running PASSED  [ 25%]
-tests/test_tracker.py::test_start_timestamp_is_iso_second_precision PASSED [ 26%]
-tests/test_tracker.py::test_start_duplicate_timer_fails_with_exit_one PASSED [ 27%]
-tests/test_tracker.py::test_start_duplicate_error_colored_red PASSED     [ 29%]
-tests/test_tracker.py::test_start_duplicate_error_names_existing_project PASSED [ 30%]
-tests/test_tracker.py::test_start_duplicate_error_contains_literal_phrase PASSED [ 31%]
-tests/test_tracker.py::test_start_duplicate_does_not_modify_file PASSED  [ 32%]
-tests/test_tracker.py::test_start_success_message_uses_cyan_for_project PASSED [ 33%]
-tests/test_tracker.py::test_start_success_message_contains_literal_phrase PASSED [ 34%]
-tests/test_tracker.py::test_log_file_ends_with_newline PASSED            [ 36%]
-tests/test_tracker.py::test_start_appends_rather_than_overwriting PASSED [ 37%]
-tests/test_tracker.py::test_stop_success_exit_code_zero PASSED           [ 38%]
-tests/test_tracker.py::test_stop_sets_end_to_iso_string PASSED           [ 39%]
-tests/test_tracker.py::test_stop_with_no_running_timer_exits_one PASSED  [ 40%]
-tests/test_tracker.py::test_stop_no_running_error_colored_red PASSED     [ 41%]
-tests/test_tracker.py::test_stop_no_running_error_contains_literal_phrase PASSED [ 43%]
-tests/test_tracker.py::test_stop_without_log_file_exits_one PASSED       [ 44%]
-tests/test_tracker.py::test_stop_message_contains_project_in_cyan_and_duration_in_green PASSED [ 45%]
-tests/test_tracker.py::test_stop_message_renders_duration_h_m_s PASSED   [ 46%]
-tests/test_tracker.py::test_stop_success_message_contains_literal_phrase PASSED [ 47%]
-tests/test_tracker.py::test_stop_message_wraps_duration_in_parentheses PASSED [ 48%]
-tests/test_tracker.py::test_stop_preserves_previously_completed_sessions PASSED [ 50%]
-tests/test_tracker.py::test_status_when_idle_exits_zero PASSED           [ 51%]
-tests/test_tracker.py::test_status_when_idle_shows_idle_message PASSED   [ 52%]
-tests/test_tracker.py::test_status_when_idle_is_yellow PASSED            [ 53%]
-tests/test_tracker.py::test_status_when_running_exits_zero PASSED        [ 54%]
-tests/test_tracker.py::test_status_when_running_shows_project_in_cyan PASSED [ 55%]
-tests/test_tracker.py::test_status_when_running_shows_duration_in_green PASSED [ 56%]
-tests/test_tracker.py::test_status_when_running_message_contains_literal_phrase PASSED [ 58%]
-tests/test_tracker.py::test_status_without_log_file_exits_zero PASSED    [ 59%]
-tests/test_tracker.py::test_report_day_empty_exits_zero PASSED           [ 60%]
-tests/test_tracker.py::test_report_day_empty_shows_expected_message PASSED [ 61%]
-tests/test_tracker.py::test_report_day_empty_is_yellow PASSED            [ 62%]
-tests/test_tracker.py::test_report_day_lists_every_project_from_today PASSED [ 63%]
-tests/test_tracker.py::test_report_day_hours_use_two_decimal_places PASSED [ 65%]
-tests/test_tracker.py::test_report_day_includes_total_label PASSED       [ 66%]
-tests/test_tracker.py::test_report_day_total_row_shows_summed_hours PASSED [ 67%]
-tests/test_tracker.py::test_report_day_sorts_rows_by_hours_descending PASSED [ 68%]
-tests/test_tracker.py::test_report_day_ties_break_by_project_name_ascending PASSED [ 69%]
-tests/test_tracker.py::test_report_day_excludes_sessions_from_other_days PASSED [ 70%]
-tests/test_tracker.py::test_report_day_aggregates_multiple_sessions_for_same_project PASSED [ 72%]
-tests/test_tracker.py::test_report_day_includes_running_session PASSED   [ 73%]
-tests/test_tracker.py::test_report_day_data_rows_use_cyan_and_green PASSED [ 74%]
-tests/test_tracker.py::test_report_day_header_and_total_use_yellow PASSED [ 75%]
-tests/test_tracker.py::test_report_day_header_contains_project_and_hours_labels PASSED [ 76%]
-tests/test_tracker.py::test_report_day_has_dash_separator_row PASSED     [ 77%]
-tests/test_tracker.py::test_report_week_empty_exits_zero PASSED          [ 79%]
-tests/test_tracker.py::test_report_week_empty_shows_expected_message PASSED [ 80%]
-tests/test_tracker.py::test_report_week_empty_is_yellow PASSED           [ 81%]
-tests/test_tracker.py::test_report_week_lists_sessions_from_this_week PASSED [ 82%]
-tests/test_tracker.py::test_report_week_excludes_sessions_from_other_weeks PASSED [ 83%]
-tests/test_tracker.py::test_report_week_includes_total_label PASSED      [ 84%]
-tests/test_tracker.py::test_report_week_total_row_shows_summed_hours PASSED [ 86%]
-tests/test_tracker.py::test_report_week_aggregates_multiple_sessions_for_same_project PASSED [ 87%]
-tests/test_tracker.py::test_report_week_hours_use_two_decimal_places PASSED [ 88%]
-tests/test_tracker.py::test_report_week_sorts_rows_by_hours_descending PASSED [ 89%]
-tests/test_tracker.py::test_report_week_ties_break_by_project_name_ascending PASSED [ 90%]
-tests/test_tracker.py::test_report_week_data_rows_use_cyan_and_green PASSED [ 91%]
-tests/test_tracker.py::test_report_week_header_and_total_use_yellow PASSED [ 93%]
-tests/test_tracker.py::test_report_week_header_contains_project_and_hours_labels PASSED [ 94%]
-tests/test_tracker.py::test_report_week_has_dash_separator_row PASSED    [ 95%]
-tests/test_tracker.py::test_report_week_includes_monday_start_of_week PASSED [ 96%]
-tests/test_tracker.py::test_report_week_includes_sunday_end_of_week PASSED [ 97%]
-tests/test_tracker.py::test_log_file_is_pretty_printed PASSED            [ 98%]
-tests/test_tracker.py::test_log_file_uses_two_space_indent PASSED        [100%]
-
-============================== 86 passed in 2.51s ==============================
+=== RUN   TestExpectation_StatusMatch
+--- PASS: TestExpectation_StatusMatch (0.00s)
+=== RUN   TestExpectation_HeaderMatchesRegex
+--- PASS: TestExpectation_HeaderMatchesRegex (0.00s)
+=== RUN   TestExpectation_CookieAssertion
+--- PASS: TestExpectation_CookieAssertion (0.00s)
+=== RUN   TestExpectation_BodyMatchesRegex
+--- PASS: TestExpectation_BodyMatchesRegex (0.00s)
+=== RUN   TestExpectation_JSONParsesBody
+--- PASS: TestExpectation_JSONParsesBody (0.00s)
+=== RUN   TestExpectation_MultipleAssertionsReuseExpectation
+--- PASS: TestExpectation_MultipleAssertionsReuseExpectation (0.00s)
+=== RUN   TestRequest_FluentChainMergesAllOptions
+--- PASS: TestRequest_FluentChainMergesAllOptions (0.00s)
+=== RUN   TestStartServer_ReturnsWorkingClient
+--- PASS: TestStartServer_ReturnsWorkingClient (0.00s)
+=== RUN   TestTestServer_CloseIsCallable
+--- PASS: TestTestServer_CloseIsCallable (0.00s)
+=== RUN   TestNewClient_PrefixesBaseURL
+--- PASS: TestNewClient_PrefixesBaseURL (0.00s)
+=== RUN   TestClient_GetSendsGET
+--- PASS: TestClient_GetSendsGET (0.00s)
+=== RUN   TestClient_PostSendsPOST
+--- PASS: TestClient_PostSendsPOST (0.00s)
+=== RUN   TestClient_PutSendsPUT
+--- PASS: TestClient_PutSendsPUT (0.00s)
+=== RUN   TestClient_PatchSendsPATCH
+--- PASS: TestClient_PatchSendsPATCH (0.00s)
+=== RUN   TestClient_DeleteSendsDELETE
+--- PASS: TestClient_DeleteSendsDELETE (0.00s)
+=== RUN   TestRequest_WithHeaderSendsHeader
+--- PASS: TestRequest_WithHeaderSendsHeader (0.00s)
+=== RUN   TestRequest_WithCookieSendsCookie
+--- PASS: TestRequest_WithCookieSendsCookie (0.00s)
+=== RUN   TestRequest_WithBodyStringSentVerbatim
+--- PASS: TestRequest_WithBodyStringSentVerbatim (0.00s)
+=== RUN   TestRequest_WithBodyBytesSentVerbatim
+--- PASS: TestRequest_WithBodyBytesSentVerbatim (0.00s)
+=== RUN   TestRequest_WithBodyNonRawMarshalsAsJSON
+--- PASS: TestRequest_WithBodyNonRawMarshalsAsJSON (0.00s)
+=== RUN   TestHelper_FailurePath
+    failure_test.go:82: subprocess helper invoked by TestFailure_* tests
+--- SKIP: TestHelper_FailurePath (0.00s)
+=== RUN   TestFailure_TransportErrorReportsAndChains
+--- PASS: TestFailure_TransportErrorReportsAndChains (0.01s)
+=== RUN   TestFailure_JSONParseErrorReportsAndChains
+--- PASS: TestFailure_JSONParseErrorReportsAndChains (0.01s)
+=== RUN   TestFailure_ExpectationChainContinuesAfterFailedAssertion
+--- PASS: TestFailure_ExpectationChainContinuesAfterFailedAssertion (0.01s)
+=== RUN   TestFailure_JSONAssertionChainContinuesAfterFailedAssertion
+--- PASS: TestFailure_JSONAssertionChainContinuesAfterFailedAssertion (0.01s)
+=== RUN   TestFailure_StatusFailureMessageContainsAllFields
+--- PASS: TestFailure_StatusFailureMessageContainsAllFields (0.01s)
+=== RUN   TestFailure_TransportErrorMessageUsesNoneSentinel
+--- PASS: TestFailure_TransportErrorMessageUsesNoneSentinel (0.01s)
+=== RUN   TestJSON_HasFieldNarrowsScopeToResolvedValue
+--- PASS: TestJSON_HasFieldNarrowsScopeToResolvedValue (0.00s)
+=== RUN   TestJSON_FieldEqualsNumericNormalization
+--- PASS: TestJSON_FieldEqualsNumericNormalization (0.00s)
+=== RUN   TestJSON_FieldEqualsFloat
+--- PASS: TestJSON_FieldEqualsFloat (0.00s)
+=== RUN   TestJSON_FieldEqualsString
+--- PASS: TestJSON_FieldEqualsString (0.00s)
+=== RUN   TestJSON_FieldEqualsBoolean
+--- PASS: TestJSON_FieldEqualsBoolean (0.00s)
+=== RUN   TestJSON_FieldEqualsDoesNotNarrowScope
+--- PASS: TestJSON_FieldEqualsDoesNotNarrowScope (0.00s)
+=== RUN   TestJSON_FieldMatchesRegex
+--- PASS: TestJSON_FieldMatchesRegex (0.00s)
+=== RUN   TestJSON_FieldMatchesDoesNotNarrowScope
+--- PASS: TestJSON_FieldMatchesDoesNotNarrowScope (0.00s)
+=== RUN   TestJSON_IsArrayOnRoot
+--- PASS: TestJSON_IsArrayOnRoot (0.00s)
+=== RUN   TestJSON_LengthOnArray
+--- PASS: TestJSON_LengthOnArray (0.00s)
+=== RUN   TestJSON_PathDotNotationResolvesNestedObjects
+--- PASS: TestJSON_PathDotNotationResolvesNestedObjects (0.00s)
+=== RUN   TestJSON_PathBracketNotationResolvesArrayIndex
+--- PASS: TestJSON_PathBracketNotationResolvesArrayIndex (0.00s)
+=== RUN   TestJSON_EmptyPathReferencesCurrentScope
+--- PASS: TestJSON_EmptyPathReferencesCurrentScope (0.00s)
+=== RUN   TestJSON_SeedChainEndToEnd
+--- PASS: TestJSON_SeedChainEndToEnd (0.00s)
+PASS
+ok  	fluenthttp_tests/tests	0.089s

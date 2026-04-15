@@ -22,46 +22,59 @@ class TestResult:
 ### DO NOT MODIFY THE CODE ABOVE ###
 ### Implement the parsing logic below ###
 
-import re
-
 def parse_test_output(stdout_content: str, stderr_content: str) -> List[TestResult]:
     """
-    Parse pytest verbose output and extract test results.
-    
-    Parses lines like:
-        tests/test_app.py::test_create_app_exposes_required_routes PASSED
-        tests/test_loaders.py::test_load_expected_packets_missing_column FAILED
-        tests/test_retry_queue.py::test_retry_single_item_idempotent SKIPPED
-        tests/test_source_scanner.py::test_parse_document_filename_invalid_sets_error ERROR
+    Parse `go test -v ./...` output and extract a TestResult for every
+    test (including subtests) that the Go test runner reported.
+
+    Go's verbose test output emits one line per finished test of the form
+    `--- PASS: TestName (0.00s)`, `--- FAIL: TestName (0.00s)`, or
+    `--- SKIP: TestName (0.00s)`. Subtests are reported with their parent
+    path joined by '/', e.g. `--- PASS: TestParent/Subtest (0.00s)`, and
+    may be indented. Build failures, import errors, and panics produce no
+    `---` lines at all; in that case this function returns an empty list
+    so the evaluation harness treats the run as having produced no tests.
     """
-    results = []
-    seen = {}
-    ordered_names = []
-    combined = stdout_content + "\n" + stderr_content
+    import re
 
-    # Matches lines like:
-    #   tests/test_cli.py::TestMainSignature::test_main_importable PASSED
-    #   tests/test_cli.py::test_parse_args <- ../app/tests/test_cli.py PASSED
-    pattern = re.compile(
-        r"(tests/[^\s:]+(?:::[^\s]+)+)(?:\s+<-[^\n]+)?\s+(PASSED|FAILED|ERROR|SKIPPED|XFAIL|XPASS)",
-        re.MULTILINE,
-    )
-    for match in pattern.finditer(combined):
-        test_name = match.group(1).strip()
-        status_str = match.group(2).upper()
-        if status_str == "XPASS":
-            status_str = "PASSED"
-        elif status_str == "XFAIL":
-            status_str = "FAILED"
-        if status_str in ("ERROR", "SKIPPED"):
-            status_str = "FAILED"
-        status = TestStatus[status_str]
-        if test_name not in seen:
-            ordered_names.append(test_name)
-        seen[test_name] = status
+    result_line = re.compile(r'^\s*---\s+(PASS|FAIL|SKIP):\s+(\S+)\s+\(')
+    status_map = {
+        'PASS': TestStatus.PASSED,
+        'FAIL': TestStatus.FAILED,
+        'SKIP': TestStatus.SKIPPED,
+    }
 
-    for test_name in ordered_names:
-        results.append(TestResult(name=test_name, status=seen[test_name]))
+    # TestHelper_FailurePath is an internal subprocess helper used by the
+    # failure-path tests: the parent tests re-exec the test binary with an
+    # env var set and observe the child's captured output. In the normal
+    # (non-subprocess) go test run the helper detects that the env var is
+    # absent and calls t.Skip, which surfaces as a SKIP line. The helper
+    # is an implementation detail of the test harness — not a prompt
+    # requirement — so filter it out entirely so it contaminates neither
+    # before.json nor after.json.
+    excluded_names = {'TestHelper_FailurePath'}
+
+    results: List[TestResult] = []
+    seen = set()
+
+    # Scan both streams: Go test normally writes results to stdout, but some
+    # build environments merge streams. Looking at both makes the parser
+    # robust to that without duplicating entries (deduped via `seen`).
+    for stream in (stdout_content, stderr_content):
+        if not stream:
+            continue
+        for line in stream.splitlines():
+            match = result_line.match(line)
+            if not match:
+                continue
+            status_token = match.group(1)
+            name = match.group(2)
+            if name in excluded_names:
+                continue
+            if name in seen:
+                continue
+            seen.add(name)
+            results.append(TestResult(name=name, status=status_map[status_token]))
 
     return results
 
