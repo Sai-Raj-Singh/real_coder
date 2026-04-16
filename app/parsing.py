@@ -24,57 +24,55 @@ class TestResult:
 
 def parse_test_output(stdout_content: str, stderr_content: str) -> List[TestResult]:
     """
-    Parse `go test -v ./...` output and extract a TestResult for every
-    test (including subtests) that the Go test runner reported.
+    Parse `cargo test` output and extract per-test results.
 
-    Go's verbose test output emits one line per finished test of the form
-    `--- PASS: TestName (0.00s)`, `--- FAIL: TestName (0.00s)`, or
-    `--- SKIP: TestName (0.00s)`. Subtests are reported with their parent
-    path joined by '/', e.g. `--- PASS: TestParent/Subtest (0.00s)`, and
-    may be indented. Build failures, import errors, and panics produce no
-    `---` lines at all; in that case this function returns an empty list
-    so the evaluation harness treats the run as having produced no tests.
+    Recognises the per-binary "Running ... (target/.../<stem>-<hash>)" header
+    used by Cargo so that tests from different binaries are namespaced as
+    "<stem>::<test_name>" and never collide.
     """
     import re
 
-    result_line = re.compile(r'^\s*---\s+(PASS|FAIL|SKIP):\s+(\S+)\s+\(')
-    status_map = {
-        'PASS': TestStatus.PASSED,
-        'FAIL': TestStatus.FAILED,
-        'SKIP': TestStatus.SKIPPED,
-    }
-
-    # TestHelper_FailurePath is an internal subprocess helper used by the
-    # failure-path tests: the parent tests re-exec the test binary with an
-    # env var set and observe the child's captured output. In the normal
-    # (non-subprocess) go test run the helper detects that the env var is
-    # absent and calls t.Skip, which surfaces as a SKIP line. The helper
-    # is an implementation detail of the test harness — not a prompt
-    # requirement — so filter it out entirely so it contaminates neither
-    # before.json nor after.json.
-    excluded_names = {'TestHelper_FailurePath'}
+    binary_re = re.compile(r'\(target/[^)]*?/([^/]+)-[0-9a-f]{8,}\)')
+    test_re = re.compile(r'^test\s+(\S+)\s+\.\.\.\s+(ok|passed|FAILED|ignored)\s*$')
 
     results: List[TestResult] = []
     seen = set()
+    current_binary = ''
 
-    # Scan both streams: Go test normally writes results to stdout, but some
-    # build environments merge streams. Looking at both makes the parser
-    # robust to that without duplicating entries (deduped via `seen`).
-    for stream in (stdout_content, stderr_content):
-        if not stream:
+    combined = (stdout_content or '') + '\n' + (stderr_content or '')
+
+    for raw_line in combined.splitlines():
+        line = raw_line.rstrip()
+
+        m = binary_re.search(line)
+        if m:
+            current_binary = m.group(1)
             continue
-        for line in stream.splitlines():
-            match = result_line.match(line)
-            if not match:
-                continue
-            status_token = match.group(1)
-            name = match.group(2)
-            if name in excluded_names:
-                continue
-            if name in seen:
-                continue
-            seen.add(name)
-            results.append(TestResult(name=name, status=status_map[status_token]))
+
+        stripped = line.lstrip()
+        if not stripped.startswith('test '):
+            continue
+
+        m = test_re.match(stripped)
+        if not m:
+            continue
+
+        name = m.group(1)
+        status_str = m.group(2)
+        full_name = '{}::{}'.format(current_binary, name) if current_binary else name
+
+        if full_name in seen:
+            continue
+        seen.add(full_name)
+
+        if status_str == 'ok' or status_str == 'passed':
+            status = TestStatus.PASSED
+        elif status_str == 'FAILED':
+            status = TestStatus.FAILED
+        else:
+            status = TestStatus.SKIPPED
+
+        results.append(TestResult(name=full_name, status=status))
 
     return results
 

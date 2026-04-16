@@ -1,86 +1,71 @@
-Running all tests...
-=== RUN   TestExpectation_StatusMatch
---- PASS: TestExpectation_StatusMatch (0.01s)
-=== RUN   TestExpectation_HeaderMatchesRegex
---- PASS: TestExpectation_HeaderMatchesRegex (0.00s)
-=== RUN   TestExpectation_CookieAssertion
---- PASS: TestExpectation_CookieAssertion (0.00s)
-=== RUN   TestExpectation_BodyMatchesRegex
---- PASS: TestExpectation_BodyMatchesRegex (0.00s)
-=== RUN   TestExpectation_JSONParsesBody
---- PASS: TestExpectation_JSONParsesBody (0.00s)
-=== RUN   TestExpectation_MultipleAssertionsReuseExpectation
---- PASS: TestExpectation_MultipleAssertionsReuseExpectation (0.00s)
-=== RUN   TestRequest_FluentChainMergesAllOptions
---- PASS: TestRequest_FluentChainMergesAllOptions (0.00s)
-=== RUN   TestStartServer_ReturnsWorkingClient
---- PASS: TestStartServer_ReturnsWorkingClient (0.00s)
-=== RUN   TestTestServer_CloseIsCallable
---- PASS: TestTestServer_CloseIsCallable (0.00s)
-=== RUN   TestNewClient_PrefixesBaseURL
---- PASS: TestNewClient_PrefixesBaseURL (0.00s)
-=== RUN   TestClient_GetSendsGET
---- PASS: TestClient_GetSendsGET (0.00s)
-=== RUN   TestClient_PostSendsPOST
---- PASS: TestClient_PostSendsPOST (0.00s)
-=== RUN   TestClient_PutSendsPUT
---- PASS: TestClient_PutSendsPUT (0.00s)
-=== RUN   TestClient_PatchSendsPATCH
---- PASS: TestClient_PatchSendsPATCH (0.00s)
-=== RUN   TestClient_DeleteSendsDELETE
---- PASS: TestClient_DeleteSendsDELETE (0.00s)
-=== RUN   TestRequest_WithHeaderSendsHeader
---- PASS: TestRequest_WithHeaderSendsHeader (0.00s)
-=== RUN   TestRequest_WithCookieSendsCookie
---- PASS: TestRequest_WithCookieSendsCookie (0.00s)
-=== RUN   TestRequest_WithBodyStringSentVerbatim
---- PASS: TestRequest_WithBodyStringSentVerbatim (0.00s)
-=== RUN   TestRequest_WithBodyBytesSentVerbatim
---- PASS: TestRequest_WithBodyBytesSentVerbatim (0.00s)
-=== RUN   TestRequest_WithBodyNonRawMarshalsAsJSON
---- PASS: TestRequest_WithBodyNonRawMarshalsAsJSON (0.00s)
-=== RUN   TestHelper_FailurePath
-    failure_test.go:82: subprocess helper invoked by TestFailure_* tests
---- SKIP: TestHelper_FailurePath (0.00s)
-=== RUN   TestFailure_TransportErrorReportsAndChains
---- PASS: TestFailure_TransportErrorReportsAndChains (0.01s)
-=== RUN   TestFailure_JSONParseErrorReportsAndChains
---- PASS: TestFailure_JSONParseErrorReportsAndChains (0.01s)
-=== RUN   TestFailure_ExpectationChainContinuesAfterFailedAssertion
---- PASS: TestFailure_ExpectationChainContinuesAfterFailedAssertion (0.01s)
-=== RUN   TestFailure_JSONAssertionChainContinuesAfterFailedAssertion
---- PASS: TestFailure_JSONAssertionChainContinuesAfterFailedAssertion (0.01s)
-=== RUN   TestFailure_StatusFailureMessageContainsAllFields
---- PASS: TestFailure_StatusFailureMessageContainsAllFields (0.01s)
-=== RUN   TestFailure_TransportErrorMessageUsesNoneSentinel
---- PASS: TestFailure_TransportErrorMessageUsesNoneSentinel (0.01s)
-=== RUN   TestJSON_HasFieldNarrowsScopeToResolvedValue
---- PASS: TestJSON_HasFieldNarrowsScopeToResolvedValue (0.00s)
-=== RUN   TestJSON_FieldEqualsNumericNormalization
---- PASS: TestJSON_FieldEqualsNumericNormalization (0.00s)
-=== RUN   TestJSON_FieldEqualsFloat
---- PASS: TestJSON_FieldEqualsFloat (0.00s)
-=== RUN   TestJSON_FieldEqualsString
---- PASS: TestJSON_FieldEqualsString (0.00s)
-=== RUN   TestJSON_FieldEqualsBoolean
---- PASS: TestJSON_FieldEqualsBoolean (0.00s)
-=== RUN   TestJSON_FieldEqualsDoesNotNarrowScope
---- PASS: TestJSON_FieldEqualsDoesNotNarrowScope (0.00s)
-=== RUN   TestJSON_FieldMatchesRegex
---- PASS: TestJSON_FieldMatchesRegex (0.00s)
-=== RUN   TestJSON_FieldMatchesDoesNotNarrowScope
---- PASS: TestJSON_FieldMatchesDoesNotNarrowScope (0.00s)
-=== RUN   TestJSON_IsArrayOnRoot
---- PASS: TestJSON_IsArrayOnRoot (0.00s)
-=== RUN   TestJSON_LengthOnArray
---- PASS: TestJSON_LengthOnArray (0.00s)
-=== RUN   TestJSON_PathDotNotationResolvesNestedObjects
---- PASS: TestJSON_PathDotNotationResolvesNestedObjects (0.00s)
-=== RUN   TestJSON_PathBracketNotationResolvesArrayIndex
---- PASS: TestJSON_PathBracketNotationResolvesArrayIndex (0.00s)
-=== RUN   TestJSON_EmptyPathReferencesCurrentScope
---- PASS: TestJSON_EmptyPathReferencesCurrentScope (0.00s)
-=== RUN   TestJSON_SeedChainEndToEnd
---- PASS: TestJSON_SeedChainEndToEnd (0.00s)
-PASS
-ok  	fluenthttp_tests/tests	0.096s
+   Compiling text_diff v0.1.0 (/app)
+    Finished test [unoptimized + debuginfo] target(s) in 3.38s
+     Running unittests src/lib.rs (target/debug/deps/text_diff-9737cc5002f472e2)
+
+running 0 tests
+
+test result: passed. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/integration_test.rs (target/debug/deps/integration_test-75199a9887ab6a0b)
+
+running 51 tests
+test change_and_word_change_derive_required_traits ... passed
+test diff_changes_appear_in_natural_reading_order ... passed
+test diff_change_content_excludes_line_terminator ... passed
+test diff_delete_carries_old_line_number_only ... passed
+test diff_empty_inputs_yield_no_changes ... passed
+test diff_empty_string_has_zero_lines ... passed
+test diff_equal_carries_one_based_line_numbers ... passed
+test diff_identical_inputs_have_no_edits ... passed
+test diff_insert_carries_new_line_number_only ... passed
+test diff_lines_are_split_on_newline ... passed
+test diff_minimal_disjoint_inputs_count_all_lines ... passed
+test diff_minimal_single_line_replacement_is_two_ops ... passed
+test diff_minimal_subset_only_deletes_extras ... passed
+test diff_reader_handles_empty_streams ... passed
+test diff_reader_handles_inputs_without_trailing_newline ... passed
+test diff_reader_propagates_io_errors ... passed
+test diff_reader_returns_same_script_as_in_memory_diff ... passed
+test diff_trailing_newline_does_not_produce_extra_line ... passed
+test side_by_side_columns_are_padded_to_exact_char_width ... passed
+test side_by_side_deletion_row_uses_left_angle_marker_with_empty_right ... passed
+test side_by_side_every_row_terminated_with_newline ... passed
+test side_by_side_insertion_row_uses_right_angle_marker_with_empty_left ... passed
+test side_by_side_renders_full_script_including_unchanged_rows ... passed
+test side_by_side_replacement_row_pairs_consecutive_delete_then_insert ... passed
+test side_by_side_truncates_content_longer_than_width ... passed
+test side_by_side_unchanged_row_uses_space_marker ... passed
+test side_by_side_width_is_in_unicode_scalar_values_not_bytes ... passed
+test similarity_always_in_unit_interval ... passed
+test similarity_both_empty_inputs_yield_one ... passed
+test similarity_disjoint_inputs_yield_zero ... passed
+test similarity_identical_inputs_yield_one ... passed
+test similarity_one_empty_input_yields_zero ... passed
+test similarity_partial_overlap_matches_ratio_formula ... passed
+test unified_diff_context_lines_use_space_prefix ... passed
+test unified_diff_deleted_lines_use_minus_prefix ... passed
+test unified_diff_every_rendered_line_ends_with_newline ... passed
+test unified_diff_identical_inputs_returns_empty_string ... passed
+test unified_diff_inserted_lines_use_plus_prefix ... passed
+test unified_diff_merges_adjacent_changes_when_no_gap_remains ... passed
+test unified_diff_produces_two_separate_hunks_when_gap_is_wide_enough ... passed
+test unified_diff_uses_at_at_hunk_header_format ... passed
+test unified_diff_zero_length_after_uses_previous_old_line_number ... passed
+test unified_diff_zero_length_at_first_line_uses_zero ... passed
+test unified_diff_zero_length_new_side_after_uses_previous_new_line_number ... passed
+test unified_diff_zero_length_new_side_at_first_line_uses_zero ... passed
+test word_diff_empty_inputs_yield_no_tokens ... passed
+test word_diff_identical_lines_yield_only_equal_tokens ... passed
+test word_diff_is_minimal_for_a_single_word_replacement ... passed
+test word_diff_preserves_repeated_whitespace_runs ... passed
+test word_diff_reconstructs_both_inputs_verbatim ... passed
+test word_diff_treats_punctuation_inside_word_as_one_token ... passed
+
+test result: passed. 51 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests text_diff
+
+running 0 tests
+
+test result: passed. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

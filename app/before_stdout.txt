@@ -1,206 +1,335 @@
-Running all tests...
-=== RUN   TestExpectation_StatusMatch
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestExpectation_StatusMatch (0.00s)
-=== RUN   TestExpectation_HeaderMatchesRegex
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestExpectation_HeaderMatchesRegex (0.00s)
-=== RUN   TestExpectation_CookieAssertion
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestExpectation_CookieAssertion (0.00s)
-=== RUN   TestExpectation_BodyMatchesRegex
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestExpectation_BodyMatchesRegex (0.00s)
-=== RUN   TestExpectation_JSONParsesBody
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestExpectation_JSONParsesBody (0.00s)
-=== RUN   TestExpectation_MultipleAssertionsReuseExpectation
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestExpectation_MultipleAssertionsReuseExpectation (0.00s)
-=== RUN   TestRequest_FluentChainMergesAllOptions
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestRequest_FluentChainMergesAllOptions (0.00s)
-=== RUN   TestStartServer_ReturnsWorkingClient
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestStartServer_ReturnsWorkingClient (0.00s)
-=== RUN   TestTestServer_CloseIsCallable
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestTestServer_CloseIsCallable (0.00s)
-=== RUN   TestNewClient_PrefixesBaseURL
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestNewClient_PrefixesBaseURL (0.00s)
-=== RUN   TestClient_GetSendsGET
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestClient_GetSendsGET (0.00s)
-=== RUN   TestClient_PostSendsPOST
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestClient_PostSendsPOST (0.00s)
-=== RUN   TestClient_PutSendsPUT
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestClient_PutSendsPUT (0.00s)
-=== RUN   TestClient_PatchSendsPATCH
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestClient_PatchSendsPATCH (0.00s)
-=== RUN   TestClient_DeleteSendsDELETE
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestClient_DeleteSendsDELETE (0.00s)
-=== RUN   TestRequest_WithHeaderSendsHeader
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestRequest_WithHeaderSendsHeader (0.00s)
-=== RUN   TestRequest_WithCookieSendsCookie
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestRequest_WithCookieSendsCookie (0.00s)
-=== RUN   TestRequest_WithBodyStringSentVerbatim
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestRequest_WithBodyStringSentVerbatim (0.00s)
-=== RUN   TestRequest_WithBodyBytesSentVerbatim
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestRequest_WithBodyBytesSentVerbatim (0.00s)
-=== RUN   TestRequest_WithBodyNonRawMarshalsAsJSON
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestRequest_WithBodyNonRawMarshalsAsJSON (0.00s)
-=== RUN   TestHelper_FailurePath
-    failure_test.go:82: subprocess helper invoked by TestFailure_* tests
---- SKIP: TestHelper_FailurePath (0.00s)
-=== RUN   TestFailure_TransportErrorReportsAndChains
-    failure_test.go:166: chain did not reach its end-of-chain marker
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:20: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.01s)
-        FAIL
---- FAIL: TestFailure_TransportErrorReportsAndChains (0.01s)
-=== RUN   TestFailure_JSONParseErrorReportsAndChains
-    failure_test.go:178: chain did not reach its end-of-chain marker
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
---- FAIL: TestFailure_JSONParseErrorReportsAndChains (0.00s)
-=== RUN   TestFailure_ExpectationChainContinuesAfterFailedAssertion
-    failure_test.go:187: chain did not reach its end-of-chain marker
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
---- FAIL: TestFailure_ExpectationChainContinuesAfterFailedAssertion (0.00s)
-=== RUN   TestFailure_JSONAssertionChainContinuesAfterFailedAssertion
-    failure_test.go:196: chain did not reach its end-of-chain marker
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
---- FAIL: TestFailure_JSONAssertionChainContinuesAfterFailedAssertion (0.00s)
-=== RUN   TestFailure_StatusFailureMessageContainsAllFields
-    failure_test.go:241: failure message missing required content "987"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "418"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "post"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "/markerpath"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "x-req-marker"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "xmark_val_12345"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "reqbody_val_67890"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "y-resp-marker"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "ymark_val_98765"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:241: failure message missing required content "respbody_val_54321"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:244: chain did not reach its end-of-chain marker
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:15: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
---- FAIL: TestFailure_StatusFailureMessageContainsAllFields (0.00s)
-=== RUN   TestFailure_TransportErrorMessageUsesNoneSentinel
-    failure_test.go:259: transport error failure message did not contain the mandated sentinel "(none)"
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:20: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
-    failure_test.go:261: chain did not reach its end-of-chain marker
-        === RUN   TestHelper_FailurePath
-            fluenthttp.go:20: fluenthttp: stub — not implemented
-        --- FAIL: TestHelper_FailurePath (0.00s)
-        FAIL
---- FAIL: TestFailure_TransportErrorMessageUsesNoneSentinel (0.01s)
-=== RUN   TestJSON_HasFieldNarrowsScopeToResolvedValue
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_HasFieldNarrowsScopeToResolvedValue (0.00s)
-=== RUN   TestJSON_FieldEqualsNumericNormalization
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_FieldEqualsNumericNormalization (0.00s)
-=== RUN   TestJSON_FieldEqualsFloat
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_FieldEqualsFloat (0.00s)
-=== RUN   TestJSON_FieldEqualsString
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_FieldEqualsString (0.00s)
-=== RUN   TestJSON_FieldEqualsBoolean
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_FieldEqualsBoolean (0.00s)
-=== RUN   TestJSON_FieldEqualsDoesNotNarrowScope
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_FieldEqualsDoesNotNarrowScope (0.00s)
-=== RUN   TestJSON_FieldMatchesRegex
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_FieldMatchesRegex (0.00s)
-=== RUN   TestJSON_FieldMatchesDoesNotNarrowScope
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_FieldMatchesDoesNotNarrowScope (0.00s)
-=== RUN   TestJSON_IsArrayOnRoot
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_IsArrayOnRoot (0.00s)
-=== RUN   TestJSON_LengthOnArray
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_LengthOnArray (0.00s)
-=== RUN   TestJSON_PathDotNotationResolvesNestedObjects
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_PathDotNotationResolvesNestedObjects (0.00s)
-=== RUN   TestJSON_PathBracketNotationResolvesArrayIndex
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_PathBracketNotationResolvesArrayIndex (0.00s)
-=== RUN   TestJSON_EmptyPathReferencesCurrentScope
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_EmptyPathReferencesCurrentScope (0.00s)
-=== RUN   TestJSON_SeedChainEndToEnd
-    fluenthttp.go:15: fluenthttp: stub — not implemented
---- FAIL: TestJSON_SeedChainEndToEnd (0.00s)
-FAIL
-FAIL	fluenthttp_tests/tests	0.042s
-FAIL
+   Compiling text_diff v0.1.0 (/tmp/text_diff_stub)
+    Finished test [unoptimized + debuginfo] target(s) in 3.78s
+     Running unittests src/lib.rs (target/debug/deps/text_diff-9737cc5002f472e2)
+
+running 0 tests
+
+test result: passed. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/integration_test.rs (target/debug/deps/integration_test-75199a9887ab6a0b)
+
+running 51 tests
+test diff_empty_inputs_yield_no_changes ... FAILED
+test diff_delete_carries_old_line_number_only ... FAILED
+test change_and_word_change_derive_required_traits ... FAILED
+test diff_equal_carries_one_based_line_numbers ... FAILED
+test diff_insert_carries_new_line_number_only ... FAILED
+test diff_identical_inputs_have_no_edits ... FAILED
+test diff_changes_appear_in_natural_reading_order ... FAILED
+test diff_empty_string_has_zero_lines ... FAILED
+test diff_change_content_excludes_line_terminator ... FAILED
+test diff_lines_are_split_on_newline ... FAILED
+test diff_minimal_disjoint_inputs_count_all_lines ... FAILED
+test diff_minimal_single_line_replacement_is_two_ops ... FAILED
+test diff_minimal_subset_only_deletes_extras ... FAILED
+test diff_reader_handles_empty_streams ... FAILED
+test diff_reader_handles_inputs_without_trailing_newline ... FAILED
+test diff_reader_propagates_io_errors ... FAILED
+test diff_reader_returns_same_script_as_in_memory_diff ... FAILED
+test diff_trailing_newline_does_not_produce_extra_line ... FAILED
+test side_by_side_columns_are_padded_to_exact_char_width ... FAILED
+test side_by_side_deletion_row_uses_left_angle_marker_with_empty_right ... FAILED
+test side_by_side_every_row_terminated_with_newline ... FAILED
+test side_by_side_insertion_row_uses_right_angle_marker_with_empty_left ... FAILED
+test side_by_side_renders_full_script_including_unchanged_rows ... FAILED
+test side_by_side_replacement_row_pairs_consecutive_delete_then_insert ... FAILED
+test side_by_side_truncates_content_longer_than_width ... FAILED
+test side_by_side_unchanged_row_uses_space_marker ... FAILED
+test side_by_side_width_is_in_unicode_scalar_values_not_bytes ... FAILED
+test similarity_always_in_unit_interval ... FAILED
+test similarity_both_empty_inputs_yield_one ... FAILED
+test similarity_disjoint_inputs_yield_zero ... FAILED
+test similarity_identical_inputs_yield_one ... FAILED
+test similarity_one_empty_input_yields_zero ... FAILED
+test similarity_partial_overlap_matches_ratio_formula ... FAILED
+test unified_diff_context_lines_use_space_prefix ... FAILED
+test unified_diff_deleted_lines_use_minus_prefix ... FAILED
+test unified_diff_every_rendered_line_ends_with_newline ... FAILED
+test unified_diff_identical_inputs_returns_empty_string ... FAILED
+test unified_diff_inserted_lines_use_plus_prefix ... FAILED
+test unified_diff_merges_adjacent_changes_when_no_gap_remains ... FAILED
+test unified_diff_produces_two_separate_hunks_when_gap_is_wide_enough ... FAILED
+test unified_diff_uses_at_at_hunk_header_format ... FAILED
+test unified_diff_zero_length_after_uses_previous_old_line_number ... FAILED
+test unified_diff_zero_length_at_first_line_uses_zero ... FAILED
+test unified_diff_zero_length_new_side_after_uses_previous_new_line_number ... FAILED
+test unified_diff_zero_length_new_side_at_first_line_uses_zero ... FAILED
+test word_diff_empty_inputs_yield_no_tokens ... FAILED
+test word_diff_identical_lines_yield_only_equal_tokens ... FAILED
+test word_diff_is_minimal_for_a_single_word_replacement ... FAILED
+test word_diff_preserves_repeated_whitespace_runs ... FAILED
+test word_diff_reconstructs_both_inputs_verbatim ... FAILED
+test word_diff_treats_punctuation_inside_word_as_one_token ... FAILED
+
+failures:
+
+---- diff_empty_inputs_yield_no_changes stdout ----
+thread 'diff_empty_inputs_yield_no_changes' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_delete_carries_old_line_number_only stdout ----
+thread 'diff_delete_carries_old_line_number_only' panicked at src/lib.rs:15:48:
+not implemented
+
+---- change_and_word_change_derive_required_traits stdout ----
+thread 'change_and_word_change_derive_required_traits' panicked at src/lib.rs:15:48:
+not implemented
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- diff_equal_carries_one_based_line_numbers stdout ----
+thread 'diff_equal_carries_one_based_line_numbers' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_insert_carries_new_line_number_only stdout ----
+thread 'diff_insert_carries_new_line_number_only' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_identical_inputs_have_no_edits stdout ----
+thread 'diff_identical_inputs_have_no_edits' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_changes_appear_in_natural_reading_order stdout ----
+thread 'diff_changes_appear_in_natural_reading_order' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_empty_string_has_zero_lines stdout ----
+thread 'diff_empty_string_has_zero_lines' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_change_content_excludes_line_terminator stdout ----
+thread 'diff_change_content_excludes_line_terminator' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_lines_are_split_on_newline stdout ----
+thread 'diff_lines_are_split_on_newline' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_minimal_disjoint_inputs_count_all_lines stdout ----
+thread 'diff_minimal_disjoint_inputs_count_all_lines' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_minimal_single_line_replacement_is_two_ops stdout ----
+thread 'diff_minimal_single_line_replacement_is_two_ops' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_minimal_subset_only_deletes_extras stdout ----
+thread 'diff_minimal_subset_only_deletes_extras' panicked at src/lib.rs:15:48:
+not implemented
+
+---- diff_reader_handles_empty_streams stdout ----
+thread 'diff_reader_handles_empty_streams' panicked at src/lib.rs:23:37:
+not implemented
+
+---- diff_reader_handles_inputs_without_trailing_newline stdout ----
+thread 'diff_reader_handles_inputs_without_trailing_newline' panicked at src/lib.rs:23:37:
+not implemented
+
+---- diff_reader_propagates_io_errors stdout ----
+thread 'diff_reader_propagates_io_errors' panicked at src/lib.rs:23:37:
+not implemented
+
+---- diff_reader_returns_same_script_as_in_memory_diff stdout ----
+thread 'diff_reader_returns_same_script_as_in_memory_diff' panicked at src/lib.rs:23:37:
+not implemented
+
+---- diff_trailing_newline_does_not_produce_extra_line stdout ----
+thread 'diff_trailing_newline_does_not_produce_extra_line' panicked at src/lib.rs:15:48:
+not implemented
+
+---- side_by_side_columns_are_padded_to_exact_char_width stdout ----
+thread 'side_by_side_columns_are_padded_to_exact_char_width' panicked at src/lib.rs:17:61:
+not implemented
+
+---- side_by_side_deletion_row_uses_left_angle_marker_with_empty_right stdout ----
+thread 'side_by_side_deletion_row_uses_left_angle_marker_with_empty_right' panicked at src/lib.rs:17:61:
+not implemented
+
+---- side_by_side_every_row_terminated_with_newline stdout ----
+thread 'side_by_side_every_row_terminated_with_newline' panicked at src/lib.rs:17:61:
+not implemented
+
+---- side_by_side_insertion_row_uses_right_angle_marker_with_empty_left stdout ----
+thread 'side_by_side_insertion_row_uses_right_angle_marker_with_empty_left' panicked at src/lib.rs:17:61:
+not implemented
+
+---- side_by_side_renders_full_script_including_unchanged_rows stdout ----
+thread 'side_by_side_renders_full_script_including_unchanged_rows' panicked at src/lib.rs:17:61:
+not implemented
+
+---- side_by_side_replacement_row_pairs_consecutive_delete_then_insert stdout ----
+thread 'side_by_side_replacement_row_pairs_consecutive_delete_then_insert' panicked at src/lib.rs:15:48:
+not implemented
+
+---- side_by_side_truncates_content_longer_than_width stdout ----
+thread 'side_by_side_truncates_content_longer_than_width' panicked at src/lib.rs:17:61:
+not implemented
+
+---- side_by_side_unchanged_row_uses_space_marker stdout ----
+thread 'side_by_side_unchanged_row_uses_space_marker' panicked at src/lib.rs:17:61:
+not implemented
+
+---- side_by_side_width_is_in_unicode_scalar_values_not_bytes stdout ----
+thread 'side_by_side_width_is_in_unicode_scalar_values_not_bytes' panicked at src/lib.rs:17:61:
+not implemented
+
+---- similarity_always_in_unit_interval stdout ----
+thread 'similarity_always_in_unit_interval' panicked at src/lib.rs:19:46:
+not implemented
+
+---- similarity_both_empty_inputs_yield_one stdout ----
+thread 'similarity_both_empty_inputs_yield_one' panicked at src/lib.rs:19:46:
+not implemented
+
+---- similarity_disjoint_inputs_yield_zero stdout ----
+thread 'similarity_disjoint_inputs_yield_zero' panicked at src/lib.rs:19:46:
+not implemented
+
+---- similarity_identical_inputs_yield_one stdout ----
+thread 'similarity_identical_inputs_yield_one' panicked at src/lib.rs:19:46:
+not implemented
+
+---- similarity_one_empty_input_yields_zero stdout ----
+thread 'similarity_one_empty_input_yields_zero' panicked at src/lib.rs:19:46:
+not implemented
+
+---- similarity_partial_overlap_matches_ratio_formula stdout ----
+thread 'similarity_partial_overlap_matches_ratio_formula' panicked at src/lib.rs:19:46:
+not implemented
+
+---- unified_diff_context_lines_use_space_prefix stdout ----
+thread 'unified_diff_context_lines_use_space_prefix' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_deleted_lines_use_minus_prefix stdout ----
+thread 'unified_diff_deleted_lines_use_minus_prefix' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_every_rendered_line_ends_with_newline stdout ----
+thread 'unified_diff_every_rendered_line_ends_with_newline' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_identical_inputs_returns_empty_string stdout ----
+thread 'unified_diff_identical_inputs_returns_empty_string' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_inserted_lines_use_plus_prefix stdout ----
+thread 'unified_diff_inserted_lines_use_plus_prefix' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_merges_adjacent_changes_when_no_gap_remains stdout ----
+thread 'unified_diff_merges_adjacent_changes_when_no_gap_remains' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_produces_two_separate_hunks_when_gap_is_wide_enough stdout ----
+thread 'unified_diff_produces_two_separate_hunks_when_gap_is_wide_enough' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_uses_at_at_hunk_header_format stdout ----
+thread 'unified_diff_uses_at_at_hunk_header_format' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_zero_length_after_uses_previous_old_line_number stdout ----
+thread 'unified_diff_zero_length_after_uses_previous_old_line_number' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_zero_length_at_first_line_uses_zero stdout ----
+thread 'unified_diff_zero_length_at_first_line_uses_zero' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_zero_length_new_side_after_uses_previous_new_line_number stdout ----
+thread 'unified_diff_zero_length_new_side_after_uses_previous_new_line_number' panicked at src/lib.rs:16:61:
+not implemented
+
+---- unified_diff_zero_length_new_side_at_first_line_uses_zero stdout ----
+thread 'unified_diff_zero_length_new_side_at_first_line_uses_zero' panicked at src/lib.rs:16:61:
+not implemented
+
+---- word_diff_empty_inputs_yield_no_tokens stdout ----
+thread 'word_diff_empty_inputs_yield_no_tokens' panicked at src/lib.rs:18:57:
+not implemented
+
+---- word_diff_identical_lines_yield_only_equal_tokens stdout ----
+thread 'word_diff_identical_lines_yield_only_equal_tokens' panicked at src/lib.rs:18:57:
+not implemented
+
+---- word_diff_is_minimal_for_a_single_word_replacement stdout ----
+thread 'word_diff_is_minimal_for_a_single_word_replacement' panicked at src/lib.rs:18:57:
+not implemented
+
+---- word_diff_preserves_repeated_whitespace_runs stdout ----
+thread 'word_diff_preserves_repeated_whitespace_runs' panicked at src/lib.rs:18:57:
+not implemented
+
+---- word_diff_reconstructs_both_inputs_verbatim stdout ----
+thread 'word_diff_reconstructs_both_inputs_verbatim' panicked at src/lib.rs:18:57:
+not implemented
+
+---- word_diff_treats_punctuation_inside_word_as_one_token stdout ----
+thread 'word_diff_treats_punctuation_inside_word_as_one_token' panicked at src/lib.rs:18:57:
+not implemented
+
+
+failures:
+    change_and_word_change_derive_required_traits
+    diff_change_content_excludes_line_terminator
+    diff_changes_appear_in_natural_reading_order
+    diff_delete_carries_old_line_number_only
+    diff_empty_inputs_yield_no_changes
+    diff_empty_string_has_zero_lines
+    diff_equal_carries_one_based_line_numbers
+    diff_identical_inputs_have_no_edits
+    diff_insert_carries_new_line_number_only
+    diff_lines_are_split_on_newline
+    diff_minimal_disjoint_inputs_count_all_lines
+    diff_minimal_single_line_replacement_is_two_ops
+    diff_minimal_subset_only_deletes_extras
+    diff_reader_handles_empty_streams
+    diff_reader_handles_inputs_without_trailing_newline
+    diff_reader_propagates_io_errors
+    diff_reader_returns_same_script_as_in_memory_diff
+    diff_trailing_newline_does_not_produce_extra_line
+    side_by_side_columns_are_padded_to_exact_char_width
+    side_by_side_deletion_row_uses_left_angle_marker_with_empty_right
+    side_by_side_every_row_terminated_with_newline
+    side_by_side_insertion_row_uses_right_angle_marker_with_empty_left
+    side_by_side_renders_full_script_including_unchanged_rows
+    side_by_side_replacement_row_pairs_consecutive_delete_then_insert
+    side_by_side_truncates_content_longer_than_width
+    side_by_side_unchanged_row_uses_space_marker
+    side_by_side_width_is_in_unicode_scalar_values_not_bytes
+    similarity_always_in_unit_interval
+    similarity_both_empty_inputs_yield_one
+    similarity_disjoint_inputs_yield_zero
+    similarity_identical_inputs_yield_one
+    similarity_one_empty_input_yields_zero
+    similarity_partial_overlap_matches_ratio_formula
+    unified_diff_context_lines_use_space_prefix
+    unified_diff_deleted_lines_use_minus_prefix
+    unified_diff_every_rendered_line_ends_with_newline
+    unified_diff_identical_inputs_returns_empty_string
+    unified_diff_inserted_lines_use_plus_prefix
+    unified_diff_merges_adjacent_changes_when_no_gap_remains
+    unified_diff_produces_two_separate_hunks_when_gap_is_wide_enough
+    unified_diff_uses_at_at_hunk_header_format
+    unified_diff_zero_length_after_uses_previous_old_line_number
+    unified_diff_zero_length_at_first_line_uses_zero
+    unified_diff_zero_length_new_side_after_uses_previous_new_line_number
+    unified_diff_zero_length_new_side_at_first_line_uses_zero
+    word_diff_empty_inputs_yield_no_tokens
+    word_diff_identical_lines_yield_only_equal_tokens
+    word_diff_is_minimal_for_a_single_word_replacement
+    word_diff_preserves_repeated_whitespace_runs
+    word_diff_reconstructs_both_inputs_verbatim
+    word_diff_treats_punctuation_inside_word_as_one_token
+
+test result: FAILED. 0 passed; 51 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `--test integration_test`
+   Doc-tests text_diff
+
+running 0 tests
+
+test result: passed. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: 1 target failed:
+    `--test integration_test`

@@ -1,163 +1,207 @@
 {
   "tests": [
     {
-      "name": "TestExpectation_StatusMatch",
+      "name": "integration_test::diff_empty_inputs_yield_no_changes",
       "status": "FAILED"
     },
     {
-      "name": "TestExpectation_HeaderMatchesRegex",
+      "name": "integration_test::diff_delete_carries_old_line_number_only",
       "status": "FAILED"
     },
     {
-      "name": "TestExpectation_CookieAssertion",
+      "name": "integration_test::change_and_word_change_derive_required_traits",
       "status": "FAILED"
     },
     {
-      "name": "TestExpectation_BodyMatchesRegex",
+      "name": "integration_test::diff_equal_carries_one_based_line_numbers",
       "status": "FAILED"
     },
     {
-      "name": "TestExpectation_JSONParsesBody",
+      "name": "integration_test::diff_insert_carries_new_line_number_only",
       "status": "FAILED"
     },
     {
-      "name": "TestExpectation_MultipleAssertionsReuseExpectation",
+      "name": "integration_test::diff_identical_inputs_have_no_edits",
       "status": "FAILED"
     },
     {
-      "name": "TestRequest_FluentChainMergesAllOptions",
+      "name": "integration_test::diff_changes_appear_in_natural_reading_order",
       "status": "FAILED"
     },
     {
-      "name": "TestStartServer_ReturnsWorkingClient",
+      "name": "integration_test::diff_empty_string_has_zero_lines",
       "status": "FAILED"
     },
     {
-      "name": "TestTestServer_CloseIsCallable",
+      "name": "integration_test::diff_change_content_excludes_line_terminator",
       "status": "FAILED"
     },
     {
-      "name": "TestNewClient_PrefixesBaseURL",
+      "name": "integration_test::diff_lines_are_split_on_newline",
       "status": "FAILED"
     },
     {
-      "name": "TestClient_GetSendsGET",
+      "name": "integration_test::diff_minimal_disjoint_inputs_count_all_lines",
       "status": "FAILED"
     },
     {
-      "name": "TestClient_PostSendsPOST",
+      "name": "integration_test::diff_minimal_single_line_replacement_is_two_ops",
       "status": "FAILED"
     },
     {
-      "name": "TestClient_PutSendsPUT",
+      "name": "integration_test::diff_minimal_subset_only_deletes_extras",
       "status": "FAILED"
     },
     {
-      "name": "TestClient_PatchSendsPATCH",
+      "name": "integration_test::diff_reader_handles_empty_streams",
       "status": "FAILED"
     },
     {
-      "name": "TestClient_DeleteSendsDELETE",
+      "name": "integration_test::diff_reader_handles_inputs_without_trailing_newline",
       "status": "FAILED"
     },
     {
-      "name": "TestRequest_WithHeaderSendsHeader",
+      "name": "integration_test::diff_reader_propagates_io_errors",
       "status": "FAILED"
     },
     {
-      "name": "TestRequest_WithCookieSendsCookie",
+      "name": "integration_test::diff_reader_returns_same_script_as_in_memory_diff",
       "status": "FAILED"
     },
     {
-      "name": "TestRequest_WithBodyStringSentVerbatim",
+      "name": "integration_test::diff_trailing_newline_does_not_produce_extra_line",
       "status": "FAILED"
     },
     {
-      "name": "TestRequest_WithBodyBytesSentVerbatim",
+      "name": "integration_test::side_by_side_columns_are_padded_to_exact_char_width",
       "status": "FAILED"
     },
     {
-      "name": "TestRequest_WithBodyNonRawMarshalsAsJSON",
+      "name": "integration_test::side_by_side_deletion_row_uses_left_angle_marker_with_empty_right",
       "status": "FAILED"
     },
     {
-      "name": "TestFailure_TransportErrorReportsAndChains",
+      "name": "integration_test::side_by_side_every_row_terminated_with_newline",
       "status": "FAILED"
     },
     {
-      "name": "TestFailure_JSONParseErrorReportsAndChains",
+      "name": "integration_test::side_by_side_insertion_row_uses_right_angle_marker_with_empty_left",
       "status": "FAILED"
     },
     {
-      "name": "TestFailure_ExpectationChainContinuesAfterFailedAssertion",
+      "name": "integration_test::side_by_side_renders_full_script_including_unchanged_rows",
       "status": "FAILED"
     },
     {
-      "name": "TestFailure_JSONAssertionChainContinuesAfterFailedAssertion",
+      "name": "integration_test::side_by_side_replacement_row_pairs_consecutive_delete_then_insert",
       "status": "FAILED"
     },
     {
-      "name": "TestFailure_StatusFailureMessageContainsAllFields",
+      "name": "integration_test::side_by_side_truncates_content_longer_than_width",
       "status": "FAILED"
     },
     {
-      "name": "TestFailure_TransportErrorMessageUsesNoneSentinel",
+      "name": "integration_test::side_by_side_unchanged_row_uses_space_marker",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_HasFieldNarrowsScopeToResolvedValue",
+      "name": "integration_test::side_by_side_width_is_in_unicode_scalar_values_not_bytes",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_FieldEqualsNumericNormalization",
+      "name": "integration_test::similarity_always_in_unit_interval",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_FieldEqualsFloat",
+      "name": "integration_test::similarity_both_empty_inputs_yield_one",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_FieldEqualsString",
+      "name": "integration_test::similarity_disjoint_inputs_yield_zero",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_FieldEqualsBoolean",
+      "name": "integration_test::similarity_identical_inputs_yield_one",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_FieldEqualsDoesNotNarrowScope",
+      "name": "integration_test::similarity_one_empty_input_yields_zero",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_FieldMatchesRegex",
+      "name": "integration_test::similarity_partial_overlap_matches_ratio_formula",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_FieldMatchesDoesNotNarrowScope",
+      "name": "integration_test::unified_diff_context_lines_use_space_prefix",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_IsArrayOnRoot",
+      "name": "integration_test::unified_diff_deleted_lines_use_minus_prefix",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_LengthOnArray",
+      "name": "integration_test::unified_diff_every_rendered_line_ends_with_newline",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_PathDotNotationResolvesNestedObjects",
+      "name": "integration_test::unified_diff_identical_inputs_returns_empty_string",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_PathBracketNotationResolvesArrayIndex",
+      "name": "integration_test::unified_diff_inserted_lines_use_plus_prefix",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_EmptyPathReferencesCurrentScope",
+      "name": "integration_test::unified_diff_merges_adjacent_changes_when_no_gap_remains",
       "status": "FAILED"
     },
     {
-      "name": "TestJSON_SeedChainEndToEnd",
+      "name": "integration_test::unified_diff_produces_two_separate_hunks_when_gap_is_wide_enough",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::unified_diff_uses_at_at_hunk_header_format",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::unified_diff_zero_length_after_uses_previous_old_line_number",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::unified_diff_zero_length_at_first_line_uses_zero",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::unified_diff_zero_length_new_side_after_uses_previous_new_line_number",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::unified_diff_zero_length_new_side_at_first_line_uses_zero",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::word_diff_empty_inputs_yield_no_tokens",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::word_diff_identical_lines_yield_only_equal_tokens",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::word_diff_is_minimal_for_a_single_word_replacement",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::word_diff_preserves_repeated_whitespace_runs",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::word_diff_reconstructs_both_inputs_verbatim",
+      "status": "FAILED"
+    },
+    {
+      "name": "integration_test::word_diff_treats_punctuation_inside_word_as_one_token",
       "status": "FAILED"
     }
   ]
